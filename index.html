@@ -410,6 +410,136 @@ foot,.foot{display:block;margin:44px 0 0;padding-top:22px;border-top:1px solid v
 :root[data-theme="dark"] .tracker-toast,
 :root:not([data-theme="light"]) .tracker-toast{color:#0D1313;background:#E4EBE9}
 .tracker-toast.show{opacity:1;transform:translateY(0)}
+
+
+/* ── Variate 4 Themes System (Zero Layout Breakage) ── */
+
+/* Theme 1: Modern Fintech Dark (Default) */
+html[data-design="v1"], html:not([data-design]) {
+  --paper:#090D16; --surface:#111726; --surface-2:#172033;
+  --ink:#F8FAFC; --ink-2:#CBD5E1; --ink-3:#94A3B8;
+  --line:#1E293B; --line-2:#243248;
+  --accent:#10B981; --accent-soft:#064E3B44; --accent-ink:#34D399;
+  --urgent:#F43F5E; --urgent-soft:#88133744;
+  --soon:#F59E0B;   --soon-soft:#78350F44;
+  --open:#10B981;   --open-soft:#064E3B44;
+  --done:#64748B;   --done-soft:#1E293B44;
+  --shadow:0 4px 20px -4px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.07);
+}
+
+/* Theme 2: Classic Editorial (Gowun Batang & Paper) */
+html[data-design="v2"] {
+  --paper:#EDF0EE; --surface:#FFFFFF; --surface-2:#F6F8F6;
+  --ink:#141B1A; --ink-2:#3E4A48; --ink-3:#6B7A77;
+  --line:#D6DDDA; --line-2:#E7ECEA;
+  --accent:#0B5A54; --accent-soft:#DCEBE8; --accent-ink:#0B5A54;
+  --urgent:#A03327; --urgent-soft:#F7E3E0;
+  --soon:#8A6116;   --soon-soft:#F6EBD6;
+  --open:#2E6A4F;   --open-soft:#DFEDE4;
+  --done:#7A8280;   --done-soft:#E9ECEB;
+  --shadow:0 1px 2px rgba(20,27,26,.05),0 8px 24px -16px rgba(20,27,26,.28);
+}
+html[data-design="v2"] body {
+  background:#EDF0EE !important;
+}
+html[data-design="v2"] .mast h1 {
+  font-family:var(--serif) !important;
+  font-weight:700 !important;
+  color:#141B1A !important;
+  letter-spacing:-.01em !important;
+}
+html[data-design="v2"] .stat {
+  box-shadow:none !important;
+  border-color:var(--line-2) !important;
+}
+
+/* Theme 3: Kanban Pipeline View (Special Styling) */
+html[data-design="v3"] {
+  --paper:#0B101D; --surface:#131B2E; --surface-2:#1A253D;
+  --ink:#F8FAFC; --ink-2:#CBD5E1; --ink-3:#94A3B8;
+  --line:#22304E; --line-2:#2A3B5F;
+  --accent:#3B82F6; --accent-soft:#1E3A8A44; --accent-ink:#60A5FA;
+  --shadow:0 4px 24px rgba(0,0,0,.6), 0 0 0 1px rgba(59,130,246,.2);
+}
+
+/* Theme 4: Pro Terminal Compact (Developer CLI) */
+html[data-design="v4"] {
+  --paper:#0A0E14; --surface:#10151E; --surface-2:#171E2B;
+  --ink:#E6EDF3; --ink-2:#8B949E; --ink-3:#586069;
+  --line:#212B3B; --line-2:#19212E;
+  --accent:#38BDF8; --accent-soft:#0C4A6E44; --accent-ink:#7DD3FC;
+  --shadow:0 0 0 1px #212B3B;
+  --sans:"IBM Plex Mono",ui-monospace,monospace !important;
+  --serif:"IBM Plex Mono",ui-monospace,monospace !important;
+}
+html[data-design="v4"] body {
+  font-family:"IBM Plex Mono",monospace !important;
+  font-size:13px !important;
+  background:#0A0E14 !important;
+}
+html[data-design="v4"] .row {
+  padding:8px 14px !important;
+  font-size:12px !important;
+}
+
+/* Floating Switcher Bar UI */
+.design-switcher-bar {
+  position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+  z-index:99999; display:flex; align-items:center; gap:6px;
+  background:rgba(15, 23, 42, 0.94); backdrop-filter:blur(16px);
+  border:1px solid rgba(255, 255, 255, 0.18); border-radius:999px;
+  padding:6px 14px; box-shadow:0 14px 40px rgba(0,0,0,.6);
+  font-family:"IBM Plex Sans KR",system-ui,sans-serif; color:#F8FAFC;
+}
+.dsb-label {
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:700;
+  color:#94A3B8; letter-spacing:.04em; margin-right:4px;
+}
+.dsb-btn {
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:#94A3B8; font-size:12.5px; font-weight:600; padding:6px 12px;
+  border-radius:999px; cursor:pointer; transition:all .14s ease; white-space:nowrap;
+}
+.dsb-btn:hover {
+  color:#FFFFFF; background:rgba(255,255,255,0.1);
+}
+.dsb-btn.active {
+  background:#10B981; color:#042F2E; border-color:#10B981;
+  box-shadow:0 0 16px rgba(16, 185, 129, 0.45); font-weight:700;
+}
+@media(max-width:768px){
+  .design-switcher-bar {
+    width:94%; max-width:480px; overflow-x:auto; bottom:12px; padding:6px 10px; justify-content:flex-start;
+  }
+}
+
+/* Kanban Board Container */
+.kanban-view-wrap {
+  display:none; grid-template-columns:repeat(5, 1fr); gap:14px; margin:24px 0 36px;
+  overflow-x:auto; padding-bottom:12px;
+}
+@media(max-width:1180px){ .kanban-view-wrap { grid-template-columns:repeat(5, 270px); } }
+.kanban-column {
+  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:14px; display:flex; flex-direction:column; gap:10px; box-shadow:var(--shadow);
+}
+.kanban-col-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding-bottom:10px; border-bottom:2px solid var(--line); font-size:13px; font-weight:700;
+}
+.kanban-card-list { display:flex; flex-direction:column; gap:10px; min-height:220px; }
+.kanban-job-card {
+  background:var(--surface-2); border:1px solid var(--line); border-radius:8px;
+  padding:13px 14px; cursor:pointer; transition:all .15s ease;
+}
+.kanban-job-card:hover {
+  border-color:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow);
+}
+.kjc-top { display:flex; align-items:center; justify-content:space-between; gap:6px; margin-bottom:5px; }
+.kjc-co { font-weight:700; font-size:13.5px; }
+.kjc-role { font-size:12.5px; color:var(--ink-2); line-height:1.4; }
+.kjc-due { font-family:var(--mono); font-size:11px; color:var(--ink-3); margin-top:8px; display:flex; justify-content:space-between; }
+
 </style>
 </head>
 <body>
@@ -464,6 +594,10 @@ foot,.foot{display:block;margin:44px 0 0;padding-top:22px;border-top:1px solid v
     <div class="chips" id="appchips" style="display:contents"></div>
   </div>
   <div class="count"><span id="count"></span><span id="hint"></span></div>
+  
+  <!-- Kanban Board Container for Theme 3 -->
+  <div id="kanbanContainer" class="kanban-view-wrap"></div>
+
   <div class="list" id="list"></div>
 </section>
 
@@ -1490,6 +1624,130 @@ setTimeout(() => {
 }, 200);
 </script>
 
+
+
+<!-- Variate 4-Design Switcher Bar -->
+<div class="design-switcher-bar" id="variateSwitcher">
+  <span class="dsb-label">🎨 VARIATE:</span>
+  <button type="button" class="dsb-btn active" data-v="v1" title="단축키 1">🌿 1. 핀테크 다크</button>
+  <button type="button" class="dsb-btn" data-v="v2" title="단축키 2">📰 2. 에디토리얼</button>
+  <button type="button" class="dsb-btn" data-v="v3" title="단축키 3">📊 3. 칸반 보드</button>
+  <button type="button" class="dsb-btn" data-v="v4" title="단축키 4">💻 4. 프로 터미널</button>
+</div>
+
+<script>
+// ── Variate 4 Themes Realtime Engine (Zero Reload & Zero Breakage) ──
+(function initVariateSwitcher(){
+  const STORAGE_KEY = 'able_tracker_active_design';
+  const urlParams = new URLSearchParams(window.location.search);
+  let activeDesign = urlParams.get('v') || localStorage.getItem(STORAGE_KEY) || 'v1';
+  if(!['v1','v2','v3','v4'].includes(activeDesign)) activeDesign = 'v1';
+
+  function applyDesign(designKey){
+    activeDesign = designKey;
+    document.documentElement.setAttribute('data-design', designKey);
+    localStorage.setItem(STORAGE_KEY, designKey);
+
+    // Update switcher buttons
+    document.querySelectorAll('.dsb-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.v === designKey);
+    });
+
+    // Theme 3: Kanban View Activation
+    const kanbanEl = document.getElementById('kanbanContainer');
+    const listEl = document.getElementById('list');
+    if(designKey === 'v3'){
+      if(kanbanEl) kanbanEl.style.display = 'grid';
+      if(listEl) listEl.style.display = 'none';
+      renderKanbanView();
+    } else {
+      if(kanbanEl) kanbanEl.style.display = 'none';
+      if(listEl) listEl.style.display = 'flex';
+    }
+  }
+
+  // Kanban view renderer
+  window.renderKanbanView = function(){
+    const kContainer = document.getElementById('kanbanContainer');
+    if(!kContainer || typeof JOBS === 'undefined') return;
+
+    const stages = [
+      { key: '관심', name: '👀 관심 공고', color: '#94A3B8' },
+      { key: '서류준비', name: '📝 서류 준비', color: '#F59E0B' },
+      { key: '서류제출', name: '🚀 서류 제출 완료', color: '#3B82F6' },
+      { key: '면접대기', name: '🎯 면접 대기', color: '#10B981' },
+      { key: '최종합격', name: '🏆 최종 합격', color: '#EAB308' }
+    ];
+
+    kContainer.innerHTML = stages.map(st => {
+      // Find jobs in this stage
+      const matchingJobs = JOBS.filter(j => {
+        const app = (window.APPLICATIONS && (window.APPLICATIONS[j.id] || window.APPLICATIONS[j._idx])) || {};
+        return app.status === st.key;
+      });
+
+      const cardsHtml = matchingJobs.map(j => `
+        <div class="kanban-job-card" onclick="openJobDetail(${j._idx})">
+          <div class="kjc-top">
+            <span class="kjc-co">${esc(j.company)}</span>
+            <span class="strat-badge badge-${j.strategy?.fit || 'A'}">Fit ${j.strategy?.fit || 'A'}</span>
+          </div>
+          <div class="kjc-role">${esc(j.role)}</div>
+          <div class="kjc-due">
+            <span>${esc(j.type || '정규직')}</span>
+            <span>${esc(ddayLabel(j))}</span>
+          </div>
+        </div>
+      `).join('');
+
+      return `
+        <div class="kanban-column">
+          <div class="kanban-col-header" style="color:${st.color}">
+            <span>${st.name}</span>
+            <span style="font-family:var(--mono);font-size:11px;background:var(--line-2);padding:2px 8px;border-radius:999px;">
+              ${matchingJobs.length}
+            </span>
+          </div>
+          <div class="kanban-card-list">
+            ${cardsHtml || '<div style="color:var(--ink-3);font-size:12px;text-align:center;padding:36px 0;">등록된 공고 없음</div>'}
+          </div>
+        </div>
+      `;
+    }).join('');
+  };
+
+  // Helper to open accordion from kanban click
+  window.openJobDetail = function(idx){
+    applyDesign('v1'); // Switch to list mode and open
+    setTimeout(()=>{
+      state.openedId = idx;
+      renderList();
+      const el = document.getElementById('job-wrap-' + idx);
+      if(el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 50);
+  };
+
+  // Switcher button click handlers
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.dsb-btn');
+    if(btn && btn.dataset.v){
+      applyDesign(btn.dataset.v);
+    }
+  });
+
+  // Keyboard shortcut handlers (1, 2, 3, 4)
+  document.addEventListener('keydown', e => {
+    if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if(e.key === '1') applyDesign('v1');
+    if(e.key === '2') applyDesign('v2');
+    if(e.key === '3') applyDesign('v3');
+    if(e.key === '4') applyDesign('v4');
+  });
+
+  // Apply initial design
+  applyDesign(activeDesign);
+})();
+</script>
 
 </body>
 </html>
