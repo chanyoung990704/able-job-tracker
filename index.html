@@ -75,7 +75,9 @@
 *{box-sizing:border-box}
 body{margin:0;background:radial-gradient(ellipse at 50% -10%, #17263c 0%, #090D16 75%) fixed;color:var(--ink);font-family:var(--sans);
   font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;font-size:15px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 24px 88px}
+.list{display:flex;flex-direction:column;gap:8px;width:100%}
+.row-wrap{width:100%;border-radius:8px}
+.wrap{max-width:1680px;width:95vw;margin:0 auto;padding:0 24px 88px}
 h1,h2,h3{text-wrap:balance;margin:0}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
@@ -1076,6 +1078,231 @@ body {
   border-color: var(--accent);
 }
 
+
+
+/* Widescreen Kanban & Compact Toolbar Enhancements */
+.wrap {
+  max-width: 1680px !important;
+  width: 95vw !important;
+  margin: 0 auto;
+  padding: 0 24px 88px;
+}
+
+.list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+.row-wrap {
+  width: 100% !important;
+  border-radius: 8px !important;
+}
+
+.kanban-view-wrap {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(290px, 1fr)) !important;
+  gap: 16px !important;
+  margin: 20px 0 40px !important;
+  width: 100% !important;
+  align-items: start !important;
+}
+
+@media (max-width: 1440px) {
+  .kanban-view-wrap {
+    grid-template-columns: repeat(5, minmax(260px, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .kanban-view-wrap {
+    display: flex !important;
+    overflow-x: auto !important;
+    padding-bottom: 16px !important;
+    scroll-snap-type: x mandatory !important;
+  }
+  .kanban-column {
+    min-width: 290px !important;
+    flex: 0 0 300px !important;
+  }
+}
+
+.kanban-column {
+  min-height: 480px !important;
+  padding: 16px !important;
+  border-radius: 12px !important;
+}
+
+/* 2-Row Compact Toolbar */
+.unified-toolbar {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 18px 0 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tb-row-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tb-view-group {
+  display: inline-flex;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 4px;
+}
+
+.tb-search-wrap {
+  flex: 1 1 320px;
+  max-width: 540px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 0 14px;
+  transition: border-color 0.14s;
+}
+.tb-search-wrap:focus-within {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.tb-search-wrap input {
+  flex: 1;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  padding: 9px 0;
+  outline: none;
+}
+.tb-search-wrap svg {
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.tb-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-open-catalog-drawer {
+  appearance: none;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #93C5FD;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
+}
+.btn-open-catalog-drawer:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(16, 185, 129, 0.35));
+  border-color: #3B82F6;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.tb-row-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line-2);
+}
+
+.tb-filters-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tb-count-badge {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Catalog Drawer Item Card */
+.catalog-item-card {
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.14s;
+}
+.catalog-item-card:hover {
+  border-color: var(--accent);
+}
+.catalog-stage-btn {
+  appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.catalog-stage-btn:hover {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+.catalog-stage-btn.active-stage {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+/* Infinite Scroll Sentinel */
+.infinite-sentinel {
+  padding: 24px 0 16px;
+  text-align: center;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 </style>
 </head>
 <body>
@@ -1139,45 +1366,64 @@ body {
 </div>
 
 
-<div class="view-mode-bar" id="viewModeBar">
-  <div class="view-mode-tabs">
-    <button type="button" class="view-mode-btn active" id="btnModeKanban" data-view="kanban">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="12" rx="1"/><rect x="17" y="3" width="5" height="18" rx="1"/></svg>
-      <span>📊 칸반 파이프라인 보드</span>
-    </button>
-    <button type="button" class="view-mode-btn" id="btnModeList" data-view="list">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-      <span>📋 전체 공고 카탈로그 (226건)</span>
-    </button>
+<section class="panel" id="panel-jobs" role="tabpanel" aria-labelledby="tab-jobs">
+
+<div class="unified-toolbar" id="unifiedToolbar">
+  <!-- Row 1: View Modes + Search + Catalog Drawer Button -->
+  <div class="tb-row-1">
+    <div class="tb-view-group">
+      <button type="button" class="view-mode-btn active" id="btnModeKanban" data-view="kanban" title="5단계 전형 파이프라인 칸반">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="12" rx="1"/><rect x="17" y="3" width="5" height="18" rx="1"/></svg>
+        <span>📊 칸반 파이프라인 (기본)</span>
+      </button>
+      <button type="button" class="view-mode-btn" id="btnModeList" data-view="list" title="226건 수직 무한 스크롤 카탈로그">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>📋 전체 공고 카탈로그 (226건)</span>
+      </button>
+    </div>
+
+    <!-- Search input -->
+    <div class="tb-search-wrap">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input type="search" id="q" placeholder="기업명 · 직무 · 기술스택(Java, Kafka 등) · 메모 실시간 검색" aria-label="기업명 또는 직무 검색">
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="tb-actions">
+      <button type="button" class="btn-open-catalog-drawer" id="btnOpenCatalogDrawer" title="전체 226건 공고에서 칸반으로 즉시 담기">
+        <span>➕ 공고 탐색 &amp; 파이프라인 담기</span>
+      </button>
+      <label class="toggle"><input type="checkbox" id="showClosed"> 마감 공고 포함</label>
+    </div>
   </div>
-  <div class="view-mode-actions">
-    <button type="button" class="btn-quick-add-kanban" id="btnCatalogBrowse">
-      ➕ 전체 226개 공고 카탈로그 보기
-    </button>
+
+  <!-- Row 2: Category Chips + Fit Chips + App Status Chips + Dynamic Count -->
+  <div class="tb-row-2">
+    <div class="tb-filters-left">
+      <!-- Category Chips -->
+      <div class="chips" id="catchips"></div>
+
+      <!-- Fit Chips -->
+      <div style="display:inline-flex;gap:4px;align-items:center;margin-left:6px;padding-left:8px;border-left:1px solid var(--line);">
+        <button class="strat-chip" type="button" data-fit="all" aria-pressed="true">전체 Fit</button>
+        <button class="strat-chip" type="button" data-fit="S" aria-pressed="false"><span class="strat-badge badge-S">Fit S</span> 최우선</button>
+        <button class="strat-chip" type="button" data-fit="A" aria-pressed="false"><span class="strat-badge badge-A">Fit A</span> 추천</button>
+        <button class="strat-chip" type="button" data-fit="B" aria-pressed="false"><span class="strat-badge badge-B">Fit B</span> 검토</button>
+      </div>
+
+      <!-- Application Status Chips -->
+      <div style="display:inline-flex;gap:4px;align-items:center;margin-left:6px;padding-left:8px;border-left:1px solid var(--line);">
+        <div class="chips" id="appchips" style="display:contents"></div>
+      </div>
+    </div>
+
+    <div class="tb-count-badge">
+      <span id="count"></span>
+      <span id="hint" style="opacity:0.6;"></span>
+    </div>
   </div>
 </div>
 
-<section class="panel" id="panel-jobs" role="tabpanel" aria-labelledby="tab-jobs">
-  <div class="filters">
-    <div class="chips" id="catchips"></div>
-    <label class="search">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <input type="search" id="q" placeholder="기업명 · 직무 · 기술스택(Java, Kafka 등) · 메모 검색" aria-label="기업명 또는 직무 검색">
-    </label>
-    <label class="toggle"><input type="checkbox" id="showClosed"> 마감 지난 공고 포함</label>
-  </div>
-  <div class="strat-filter-row">
-    <span style="font-size:12px;color:var(--ink-3);font-family:var(--mono);">맞춤 전략 적합도:</span>
-    <button class="strat-chip" type="button" data-fit="all" aria-pressed="true">전체 보기</button>
-    <button class="strat-chip" type="button" data-fit="S" aria-pressed="false"><span class="strat-badge badge-S">Fit S</span> 최우선 적합</button>
-    <button class="strat-chip" type="button" data-fit="A" aria-pressed="false"><span class="strat-badge badge-A">Fit A</span> 추천 적합</button>
-    <button class="strat-chip" type="button" data-fit="B" aria-pressed="false"><span class="strat-badge badge-B">Fit B</span> 검토 지원</button>
-  </div>
-  <div class="app-filter-row">
-    <span class="app-filter-label">내 지원 현황:</span>
-    <div class="chips" id="appchips" style="display:contents"></div>
-  </div>
-  <div class="count"><span id="count"></span><span id="hint"></span></div>
   
   <!-- Kanban Board Container for Theme 3 -->
   <div id="kanbanContainer" class="kanban-view-wrap"></div>
@@ -1659,22 +1905,40 @@ function setJobMemo(jobId, memoVal){
 }
 
 function seedDemoApplications(){
-  window.APPLICATIONS[1] = { status: '관심', is_bookmarked: false, memo: '공공기관 IT 전산 업무 요강 확인 완료', updated_at: new Date().toISOString() };
-  window.APPLICATIONS[2] = { status: '서류준비', is_bookmarked: true, memo: '산업은행 금융 IT/AI 포지션 - 4/2 마감 전 자소서 초안 작성 중', updated_at: new Date().toISOString() };
-  window.APPLICATIONS[11] = { status: '면접대기', is_bookmarked: true, memo: 'CJ올리브영 백엔드 개발 - 1차 실무진 면접 9/12(금) 14:00. SENTINEL Kafka 비동기 분리 & Spring 복합 인덱스 성과 집중 어필!', applied_at: '2026-04-01T09:00:00Z', updated_at: new Date().toISOString() };
-  window.APPLICATIONS[22] = { status: '서류제출', is_bookmarked: true, memo: '한화오션 AI 개발 - 9/1 서류 제출 완료. 결과 대기 중.', applied_at: '2026-09-01T15:30:00Z', updated_at: new Date().toISOString() };
-  window.APPLICATIONS[26] = { status: '코테/과제', is_bookmarked: true, memo: '현대자동차 SW Development - 9/8 온라인 코테 예정 (백준 플래티넘 5 대비 수준)', applied_at: '2026-04-03T11:00:00Z', updated_at: new Date().toISOString() };
+  window.APPLICATIONS = {
+    // 1. 관심 공고 (Wishlist)
+    1: { status:'관심', is_bookmarked:true, memo:'서울대 전산직무 - 서류 일정 확인 및 우대사항 검토', updated_at: new Date().toISOString() },
+    4: { status:'관심', is_bookmarked:false, memo:'CJ대한통운 AI/빅데이터 - 물류 최적화 도메인 분석', updated_at: new Date().toISOString() },
+    28: { status:'관심', is_bookmarked:true, memo:'현대자동차 Security Engineering - HMAC 보안 토큰 마이그레이션 경험 어필', updated_at: new Date().toISOString() },
 
+    // 2. 서류 준비 (Preparing)
+    2: { status:'서류준비', is_bookmarked:true, memo:'한국산업은행 AI/IT - 대규모 트랜잭션 무결성 및 사전 집계 인덱스 튜닝 중심 기술기술서 작성 중', updated_at: new Date().toISOString() },
+    11: { status:'서류준비', is_bookmarked:true, memo:'CJ올리브영 백엔드 개발 - Kafka 80초 지연 202 분리 및 p95 50ms 최적화 서술', updated_at: new Date().toISOString() },
+    33: { status:'서류준비', is_bookmarked:false, memo:'서한그룹 IT - Spring 내부 동작 검증 및 REST API 연동 포트폴리오 첨부', updated_at: new Date().toISOString() },
+
+    // 3. 서류 제출 완료 (Submitted)
+    5: { status:'서류제출', is_bookmarked:true, memo:'CJ대한통운 IT 개발 - 지원서 접수 완료 (접수번호 CJ-2026-IT05)', updated_at: new Date().toISOString() },
+    22: { status:'서류제출', is_bookmarked:false, memo:'한화오션 AI 개발 - 지원 완료, 인성검사 대기', updated_at: new Date().toISOString() },
+    26: { status:'서류제출', is_bookmarked:true, memo:'현대자동차 SW Development - 지원 완료, 코딩테스트 일정 대기 (백준 플래티넘 5 역량 준비)', updated_at: new Date().toISOString() },
+
+    // 4. 면접 대기 (Interview)
+    19: { status:'면접대기', is_bookmarked:true, memo:'KT&G SW개발 - 1차 실무 기술 면접 대기 (Resilience4j 서킷브레이커 및 동시성 방어선 집중 대비)', updated_at: new Date().toISOString() },
+    36: { status:'면접대기', is_bookmarked:false, memo:'에스엘 SW개발 - 1차 직무 인터뷰 준비', updated_at: new Date().toISOString() },
+
+    // 5. 최종 합격 (Offer)
+    42: { status:'최종합격', is_bookmarked:true, memo:'한국피앤지 IT - 최종 합격 오퍼 수락', updated_at: new Date().toISOString() }
+  };
   saveLocalApplications();
-  if(supabaseClient){
-    [1, 2, 11, 22, 26].forEach(jid => syncApplicationToSupabase(jid));
-  }
-  renderStats(); renderAppFilters(); renderList(); if(typeof renderKanbanView==="function") renderKanbanView(); if(typeof renderPipelineFunnel==="function") renderPipelineFunnel();
-  showToast('🧪 Alpha Test용 샘플 지원 데이터(5건)가 설정되었습니다!');
+  renderStats();
+  renderAppFilters();
+  renderPipelineFunnel();
+  renderKanbanView();
+  renderList(true);
+  showToast('🧪 12개 테크 기업의 풍성한 샘플 전형 데이터가 세팅되었습니다.');
 }
 
 async function resetApplications(){
-  if(confirm('모든 지원 현황 및 메모 데이터를 초기화하시겠습니까?')){
+  if(confirm('모든 지원 현황 및 메모를 완전히 초기화하시겠습니까?')){
     window.APPLICATIONS = {};
     saveLocalApplications();
     if(supabaseClient){
@@ -1686,8 +1950,12 @@ async function resetApplications(){
         console.warn('Failed to delete applications from Supabase:', e);
       }
     }
-    renderStats(); renderAppFilters(); renderList(); if(typeof renderKanbanView==="function") renderKanbanView(); if(typeof renderPipelineFunnel==="function") renderPipelineFunnel();
-    showToast('🗑️ 지원 데이터가 초기화되었습니다.');
+    renderStats();
+    renderAppFilters();
+    if (typeof renderPipelineFunnel === 'function') renderPipelineFunnel();
+    if (typeof renderKanbanView === 'function') renderKanbanView();
+    renderList(true);
+    showToast('지원 현황이 초기화되었습니다.');
   }
 }
 
@@ -1796,36 +2064,57 @@ function renderAppFilters(){
   `).join('');
 }
 
-function renderList(){
+
+/* ── 수직 무한 스크롤(Vertical Infinite Scroll) 기반 리스트 렌더링 ── */
+state.page = 1;
+state.pageSize = 30;
+let infiniteObserver = null;
+let catalogDrawerFit = 'all';
+
+function renderList(reset = true) {
+  if (reset) {
+    state.page = 1;
+  }
+
   const rows = visible();
-  const closedCount = JOBS.filter(j=>level(j)==='done').length;
-  $('#count').textContent = `${rows.length}건 표시 중`;
-  $('#hint').textContent = state.closed ? `마감 ${closedCount}건 포함` : `마감 ${closedCount}건 숨김`;
-  if(!rows.length){
-    $('#list').innerHTML = `<div class="empty">조건에 맞는 공고가 없습니다. 검색어를 지우거나 필터를 조정해 보세요.</div>`;
+  const closedCount = JOBS.filter(j => level(j) === 'done').length;
+  const countEl = document.getElementById('count');
+  const hintEl = document.getElementById('hint');
+  if (countEl) countEl.textContent = `${rows.length}개 공고 표시 중`;
+  if (hintEl) hintEl.textContent = state.closed ? `(마감 ${closedCount}개 포함)` : `(마감 ${closedCount}개 숨김)`;
+
+  const listEl = document.getElementById('list');
+  if (!listEl) return;
+
+  if (!rows.length) {
+    listEl.innerHTML = '<div class="empty" style="padding:48px 0;text-align:center;color:var(--ink-3);width:100%;">조건에 맞는 공고가 없습니다. 검색어를 변경하거나 필터를 초기화해 보세요.</div>';
+    if (typeof renderKanbanView === 'function') renderKanbanView();
+    if (typeof renderPipelineFunnel === 'function') renderPipelineFunnel();
     return;
   }
-  $('#list').innerHTML = rows.map(j=>{
+
+  // Slice for current page
+  const currentCount = state.page * state.pageSize;
+  const visibleSlice = rows.slice(0, currentCount);
+
+  const rowsHtml = visibleSlice.map(j => {
     const lv = level(j);
     const dl = daysLeft(j.due);
-    const dateTxt = j.due ? j.due.slice(5).replace('-','/') : (j.issue||'');
+    const dateTxt = j.due ? j.due.slice(5).replace('-', '/') : (j.issue || '');
     const strat = j.strategy || {};
     const fit = strat.fit || 'A';
     const isOpen = state.openedId === j._idx;
-    
-    // Application state
+
     const jobId = j.id || (j._idx + 1);
-    const app = window.APPLICATIONS[jobId] || {};
+    const app = (window.APPLICATIONS && (window.APPLICATIONS[jobId] || window.APPLICATIONS[j._idx])) || {};
     const isBookmarked = !!app.is_bookmarked;
     const appStatus = app.status || null;
     const statusSlug = appStatus ? appStatus.replace('/', '_') : '';
-    
-    const fitLabel = fit === 'S' ? '최우선 적합' : (fit === 'A' ? '추천 적합' : '검토 지원');
-    
-    const tags = (strat.stackMatch || '').split(/·|\/|,/).map(s=>s.trim()).filter(Boolean);
-    const tagsHtml = tags.map(t=>`<span class="strat-tag">${esc(t)}</span>`).join('');
-    
-    const appealHtml = (strat.appealProjects || []).map(p=>`<li>${esc(p)}</li>`).join('');
+
+    const fitLabel = fit === 'S' ? '최우선 추천' : (fit === 'A' ? '추천 적합' : '검토 지원');
+    const tags = (strat.stackMatch || '').split(/·|\/|,/).map(s => s.trim()).filter(Boolean);
+    const tagsHtml = tags.map(t => `<span class="strat-tag">${esc(t)}</span>`).join('');
+    const appealHtml = (strat.appealProjects || []).map(p => `<li>${esc(p)}</li>`).join('');
     const statusBadgeHtml = appStatus ? `<span class="app-status-badge status-${statusSlug}">${esc(appStatus)}</span>` : '';
 
     return `<div class="row-wrap" id="job-wrap-${j._idx}">
@@ -1833,27 +2122,25 @@ function renderList(){
         <span class="dday">${esc(ddayLabel(j))}<span class="date">${esc(dateTxt)}</span></span>
         <span class="co">
           <button class="btn-bm ${isBookmarked ? 'is-bookmarked' : ''}" type="button" data-bm-id="${jobId}" title="북마크 토글" onclick="event.stopPropagation()">
-            ${isBookmarked ? '★' : '☆'}
+            ${isBookmarked ? '⭐' : '☆'}
           </button>
           ${esc(j.company)}
           <span class="strat-badge badge-${fit}">Fit ${fit}</span>
           ${statusBadgeHtml}
         </span>
-        <span class="role">${esc(j.role||'—')}</span>
-        <span class="cat">${esc(j.cat||'')}</span>
-        <span class="type"><span class="pill ${typeClass(j.type)}">${esc(shortType(j.type))}</span></span>
-        <div class="row-actions">
-          <button class="btn-strat" type="button" data-strat-idx="${j._idx}">
-            ${isOpen ? '전략 접기 ▴' : '전략 보기 ▾'}
+        <span class="role">${esc(j.role)}</span>
+        <span class="cat">${esc(j.cat)}</span>
+        <span class="type ${typeClass(j.type)}">${esc(shortType(j.type))}</span>
+        <span class="row-actions" onclick="event.stopPropagation()">
+          <button class="btn-add-to-kanban" type="button" onclick="advanceJobStatus(${jobId})" title="칸반 파이프라인 단계 추가/전진">
+            + 칸반담기
           </button>
-          <a class="btn-link" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
-            공고 ↗
-          </a>
-        </div>
+          <button class="btn-strat" type="button" data-strat-idx="${j._idx}">맞춤 전략</button>
+          <a class="btn-link" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer">공고 ↗</a>
+        </span>
       </div>
-      
+
       <div class="strat-panel ${isOpen ? 'is-open' : ''}" id="strat-panel-${j._idx}">
-        <!-- Personal Application Box -->
         <div class="strat-app-box">
           <div class="strat-app-header">
             <div class="strat-app-title">
@@ -1879,7 +2166,7 @@ function renderList(){
                 <label for="memo-${jobId}">지원 메모 &amp; 전형 일지:</label>
                 <span class="strat-memo-hint">실시간 자동 저장</span>
               </div>
-              <textarea id="memo-${jobId}" class="strat-memo-input" data-memo-job="${jobId}" placeholder="서류 제출일, 전형 일정, 코테/면접 메모, 연봉/근무조건 등을 자유롭게 기록하세요...">${esc(app.memo || '')}</textarea>
+              <textarea id="memo-${jobId}" class="strat-memo-input" data-memo-job="${jobId}" placeholder="서류 제출일, 전형 일정, 코테/면접 메모 등을 자유롭게 기록하세요...">${esc(app.memo || '')}</textarea>
             </div>
           </div>
         </div>
@@ -1917,9 +2204,34 @@ function renderList(){
       </div>
     </div>`;
   }).join('');
+
+  const hasMore = currentCount < rows.length;
+  const sentinelHtml = `
+    <div id="infiniteScrollSentinel" class="infinite-sentinel">
+      ${hasMore ? `⚡ 스크롤하여 더 많은 공고 로드 (${visibleSlice.length} / ${rows.length})` : `✨ 모든 공고 (${rows.length}건)를 불러왔습니다.`}
+    </div>
+  `;
+
+  listEl.innerHTML = rowsHtml + sentinelHtml;
+
+  // Setup IntersectionObserver for smooth infinite scroll
+  if (hasMore && typeof IntersectionObserver !== 'undefined') {
+    if (infiniteObserver) infiniteObserver.disconnect();
+    infiniteObserver = new IntersectionObserver((entries) => {
+      if (entries[0] && entries[0].isIntersecting) {
+        state.page++;
+        renderList(false);
+      }
+    }, { rootMargin: '250px' });
+
+    const sentinelEl = document.getElementById('infiniteScrollSentinel');
+    if (sentinelEl) infiniteObserver.observe(sentinelEl);
+  }
+
   if (typeof renderKanbanView === 'function') renderKanbanView();
   if (typeof renderPipelineFunnel === 'function') renderPipelineFunnel();
 }
+
 
 /* ── 기업 카드 ── */
 function renderCards(){
@@ -2017,6 +2329,11 @@ function renderDetail(id){
 
 /* ── 이벤트 핸들링 ── */
 document.addEventListener('click', e=>{
+  if (e.target.closest('#btnOpenCatalogDrawer') || e.target.closest('#btnCatalogBrowse')) {
+    openCatalogDrawer();
+    return;
+  }
+
   // View mode bar buttons
   const vmBtn = e.target.closest('.view-mode-btn');
   if(vmBtn){
@@ -2075,7 +2392,7 @@ document.addEventListener('click', e=>{
   if(stratBtn || row){
     const idx = parseInt((stratBtn ? stratBtn.dataset.stratIdx : row.dataset.idx), 10);
     state.openedId = state.openedId === idx ? null : idx;
-    renderList();
+    renderList(false);
     if(state.openedId !== null){
       setTimeout(()=>{
         const el = document.getElementById('job-wrap-'+idx);
@@ -2533,6 +2850,88 @@ window.setJobStatusFromDrawer = setJobStatusFromDrawer;
 };
 
 // 6. View Mode Switcher
+
+// ── Catalog Quick Add Drawer Logic ──
+window.openCatalogDrawer = function() {
+  renderCatalogDrawerList();
+  const backdrop = document.getElementById('catalogDrawerBackdrop');
+  const drawer = document.getElementById('catalogDrawer');
+  if (backdrop) backdrop.classList.add('is-open');
+  if (drawer) drawer.classList.add('is-open');
+};
+
+window.closeCatalogDrawer = function() {
+  const backdrop = document.getElementById('catalogDrawerBackdrop');
+  const drawer = document.getElementById('catalogDrawer');
+  if (backdrop) backdrop.classList.remove('is-open');
+  if (drawer) drawer.classList.remove('is-open');
+};
+
+window.filterCatalogDrawerFit = function(fit) {
+  catalogDrawerFit = fit;
+  document.querySelectorAll('[data-drawer-fit]').forEach(btn => {
+    btn.setAttribute('aria-pressed', btn.dataset.drawerFit === fit);
+  });
+  const searchVal = (document.getElementById('catalogDrawerSearch')?.value || '').trim();
+  renderCatalogDrawerList(searchVal);
+};
+
+window.renderCatalogDrawerList = function(q = '') {
+  const container = document.getElementById('catalogDrawerBody');
+  if (!container || typeof JOBS === 'undefined') return;
+
+  const query = (q || '').toLowerCase();
+  const filtered = JOBS.filter(j => {
+    if (catalogDrawerFit !== 'all' && (j.strategy?.fit || 'B') !== catalogDrawerFit) return false;
+    if (query) {
+      const text = (j.company + ' ' + j.role + ' ' + (j.strategy?.stackMatch || '')).toLowerCase();
+      if (!text.includes(query)) return false;
+    }
+    return true;
+  });
+
+  const stages = ['관심', '서류준비', '서류제출', '면접대기', '최종합격'];
+
+  container.innerHTML = filtered.slice(0, 50).map(j => {
+    const app = (window.APPLICATIONS && (window.APPLICATIONS[j.id] || window.APPLICATIONS[j._idx])) || {};
+    const curStatus = app.status || '';
+
+    const stageBtns = stages.map(st => `
+      <button type="button" class="catalog-stage-btn ${curStatus === st ? 'active-stage' : ''}" onclick="assignJobFromCatalog(${j.id}, '${st}')">
+        ${curStatus === st ? '✓ ' : '+ '}${st}
+      </button>
+    `).join('');
+
+    return `
+      <div class="catalog-item-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-weight:700;font-size:13.5px;color:var(--ink);">${esc(j.company)}</span>
+          <span class="strat-badge badge-${j.strategy?.fit || 'A'}">Fit ${j.strategy?.fit || 'A'}</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--ink-2);">${esc(j.role)} · <span style="font-family:var(--mono);font-size:11px;color:var(--ink-3);">${esc(ddayLabel(j))}</span></div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px;">
+          ${stageBtns}
+          ${curStatus ? `<button type="button" class="catalog-stage-btn" style="color:var(--urgent)" onclick="assignJobFromCatalog(${j.id}, null)">✕ 해제</button>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('') + (filtered.length > 50 ? `<div style="text-align:center;color:var(--ink-3);font-size:11.5px;padding:10px;">외 ${filtered.length - 50}개 공고 더 있음 (검색어를 입력해 상세 조회)</div>` : '');
+};
+
+window.assignJobFromCatalog = function(jobId, status) {
+  setJobStatus(jobId, status);
+  const j = JOBS.find(x => x.id === jobId);
+  if (status) {
+    showToast(`🚀 [${j ? j.company : '공고'}] '${status}' 단계로 추가되었습니다.`);
+  } else {
+    showToast(`✕ [${j ? j.company : '공고'}] 전형 상태가 해제되었습니다.`);
+  }
+  renderCatalogDrawerList(document.getElementById('catalogDrawerSearch')?.value || '');
+  renderKanbanView();
+  renderPipelineFunnel();
+};
+
+
 function switchViewMode(mode) {
 window.switchViewMode = switchViewMode;
   state.viewMode = mode;
@@ -2567,6 +2966,12 @@ window.initSupabase = initSupabase;
 
 /* ── 초기화 및 부팅 ── */
 loadLocalApplications();
+
+// Auto seed if completely empty on first visit
+if (Object.keys(window.APPLICATIONS || {}).length === 0) {
+  seedDemoApplications();
+}
+
 renderStats();
 renderChips();
 renderAppFilters();
