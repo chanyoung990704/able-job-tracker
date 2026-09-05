@@ -1,0 +1,13 @@
+# Local Env & Config
+.env
+.env.local
+.env.*.local
+supabase_config.js
+
+# Vercel
+.vercel
+
+# Dependencies & OS
+node_modules
+.DS_Store
+Thumbs.db
