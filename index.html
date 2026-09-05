@@ -1303,6 +1303,52 @@ body {
   gap: 8px;
 }
 
+
+/* Sort Mode Controller Styles */
+.tb-sort-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 3px 6px;
+  margin-left: 6px;
+}
+.sort-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  font-weight: 700;
+  padding: 0 4px;
+  letter-spacing: 0.04em;
+}
+.sort-chip {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+.sort-chip:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+.sort-chip.active {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+  box-shadow: 0 1px 6px rgba(59, 130, 246, 0.35);
+  font-weight: 700;
+}
+
 </style>
 </head>
 <body>
@@ -1416,6 +1462,15 @@ body {
         <div class="chips" id="appchips" style="display:contents"></div>
       </div>
     </div>
+
+    
+      <!-- Sort Mode Controller -->
+      <div class="tb-sort-group" id="sortGroup">
+        <span class="sort-label">정렬:</span>
+        <button type="button" class="sort-chip active" data-sort="due" title="마감일이 가장 임박한 순서로 정렬" aria-pressed="true">⏱️ 마감임박순</button>
+        <button type="button" class="sort-chip" data-sort="fit" title="Fit S 추천 적합도 높은 순서로 정렬" aria-pressed="false">🎯 추천적합순</button>
+        <button type="button" class="sort-chip" data-sort="name" title="기업 이름 가나다순으로 정렬" aria-pressed="false">🏢 기업이름순</button>
+      </div>
 
     <div class="tb-count-badge">
       <span id="count"></span>
@@ -1541,7 +1596,7 @@ function shortType(t){
 
 /* ── 지원 상태 정의 및 상태 ── */
 const STATUSES = ['관심', '서류준비', '서류제출', '서류합격', '코테/과제', '면접대기', '최종합격', '불합격'];
-const state = { cat:'전체', fit:'all', appFilter:'all', q:'', closed:false, openedId:null };
+const state = { cat:'전체', fit:'all', appFilter:'all', q:'', closed:false, openedId:null, viewMode:'kanban', sort:'due', page:1, pageSize:30 };
 window.APPLICATIONS = {};
 let supabaseClient = null;
 let connState = 'local'; // 'local', 'connecting', 'connected', 'error'
@@ -1837,23 +1892,36 @@ async function syncApplicationToSupabase(jobId, isDelete = false){
 }
 
 function toggleBookmark(jobId){
-  const app = window.APPLICATIONS[jobId] || { is_bookmarked: false, memo: '' };
+  window.toggleBookmark = toggleBookmark;
+  jobId = parseInt(jobId, 10);
+  if(!jobId || isNaN(jobId)) return;
+
+  if(!window.APPLICATIONS[jobId]){
+    window.APPLICATIONS[jobId] = { is_bookmarked: false, memo: '' };
+  }
+  const app = window.APPLICATIONS[jobId];
   app.is_bookmarked = !app.is_bookmarked;
   app.updated_at = new Date().toISOString();
-  
+
   let isDelete = false;
   if(!app.is_bookmarked && !app.status && !app.memo){
     delete window.APPLICATIONS[jobId];
     isDelete = true;
-  } else {
-    window.APPLICATIONS[jobId] = app;
   }
 
   saveLocalApplications();
-  renderStats(); renderAppFilters(); renderList(); if(typeof renderKanbanView==="function") renderKanbanView(); if(typeof renderPipelineFunnel==="function") renderPipelineFunnel();
-  showToast(app.is_bookmarked ? '★ 북마크에 추가되었습니다.' : '☆ 북마크가 해제되었습니다.');
+  renderStats();
+  renderAppFilters();
+  if(typeof renderPipelineFunnel === 'function') renderPipelineFunnel();
+  if(typeof renderKanbanView === 'function') renderKanbanView();
+  renderList(false); // preserve current scroll position & page
+
+  const j = JOBS.find(x => x.id === jobId);
+  const coName = j ? j.company : '공고';
+  showToast(app.is_bookmarked ? `⭐ [${coName}] 북마크에 추가되었습니다.` : `☆ [${coName}] 북마크가 해제되었습니다.`);
   syncApplicationToSupabase(jobId, isDelete);
 }
+window.toggleBookmark = toggleBookmark;
 
 function setJobStatus(jobId, newStatus){
   const app = window.APPLICATIONS[jobId] || { is_bookmarked: false, memo: '' };
@@ -1973,39 +2041,68 @@ function visible(){
     const app = window.APPLICATIONS[jid];
     const hasApp = !!(app && (app.status || app.is_bookmarked || app.memo));
 
-    // 마감 지난 공고 숨김 조건:
-    // 전체 목록 모드이면서, '마감 지난 공고 포함' 미체크 상태이고, 내 개인 지원/메모가 없는 공고만 숨김
+    // 마감 지난 공고 필터
     if(!state.closed && level(j)==='done' && state.appFilter === 'all' && !hasApp) return false;
     if(state.cat!=='전체' && j.cat!==state.cat) return false;
     if(state.fit!=='all' && j.strategy && j.strategy.fit !== state.fit) return false;
 
-    // 개인 지원 상태 필터
+    // 내 지원 현황 필터
     if(state.appFilter === 'bookmarked'){
       if(!app || !app.is_bookmarked) return false;
     } else if(state.appFilter !== 'all'){
       if(!app || app.status !== state.appFilter) return false;
     }
 
+    // 검색어 필터
     if(state.q){
       const st = j.strategy ? (j.strategy.stackMatch+' '+j.strategy.corePitch+' '+(j.strategy.fit||'')) : '';
-      const app = window.APPLICATIONS[jid];
       const memo = app ? (app.memo || '') : '';
       const hay = (j.company+' '+j.role+' '+(j.cat||'')+' '+(j.type||'')+' '+st+' '+memo).toLowerCase();
       if(hay.indexOf(state.q)<0) return false;
     }
     return true;
-  }).sort((a,b)=>{
-    const la=level(a), lb=level(b);
-    if((la==='done')!==(lb==='done')) return la==='done'?1:-1;
-    const fitWeight = {'S':3, 'A':2, 'B':1};
-    const fa = fitWeight[a.strategy?.fit] || 0;
-    const fb = fitWeight[b.strategy?.fit] || 0;
-    if(fa !== fb) return fb - fa;
-    const na=daysLeft(a.due), nb=daysLeft(b.due);
-    if(na===null&&nb===null) return a.company.localeCompare(b.company,'ko');
-    if(na===null) return 1;
-    if(nb===null) return -1;
-    return na-nb;
+  }).sort((a, b) => {
+    const la = level(a), lb = level(b);
+    // 마감된 공고는 언제나 최하단
+    if((la === 'done') !== (lb === 'done')) return la === 'done' ? 1 : -1;
+
+    const sortMode = state.sort || 'due';
+
+    if(sortMode === 'due'){
+      // 1. 마감임박순: D-DAY, D-1, D-2 등 남은 일수 오름차순
+      const na = daysLeft(a.due), nb = daysLeft(b.due);
+      if(na !== null && nb !== null){
+        if(na !== nb) return na - nb;
+      } else if(na !== null){
+        return -1; // 마감일 있는 공고 우선
+      } else if(nb !== null){
+        return 1;
+      }
+      // 마감일 동일 시 Fit 우선
+      const fitWeight = {'S':3, 'A':2, 'B':1};
+      const fa = fitWeight[a.strategy?.fit] || 0;
+      const fb = fitWeight[b.strategy?.fit] || 0;
+      if(fa !== fb) return fb - fa;
+      return a.company.localeCompare(b.company, 'ko');
+    }
+
+    if(sortMode === 'fit'){
+      // 2. 추천적합순: Fit S -> Fit A -> Fit B
+      const fitWeight = {'S':3, 'A':2, 'B':1};
+      const fa = fitWeight[a.strategy?.fit] || 0;
+      const fb = fitWeight[b.strategy?.fit] || 0;
+      if(fa !== fb) return fb - fa;
+      const na = daysLeft(a.due), nb = daysLeft(b.due);
+      if(na !== null && nb !== null && na !== nb) return na - nb;
+      return a.company.localeCompare(b.company, 'ko');
+    }
+
+    if(sortMode === 'name'){
+      // 3. 기업 이름 가나다순
+      return a.company.localeCompare(b.company, 'ko');
+    }
+
+    return 0;
   });
 }
 
@@ -2121,7 +2218,7 @@ function renderList(reset = true) {
       <div class="row lv-${lv} ${isOpen ? 'is-open' : ''}" data-idx="${j._idx}">
         <span class="dday">${esc(ddayLabel(j))}<span class="date">${esc(dateTxt)}</span></span>
         <span class="co">
-          <button class="btn-bm ${isBookmarked ? 'is-bookmarked' : ''}" type="button" data-bm-id="${jobId}" title="북마크 토글" onclick="event.stopPropagation()">
+          <button class="btn-bm ${isBookmarked ? 'is-bookmarked' : ''}" type="button" data-bm-id="${jobId}" title="북마크 토글" onclick="event.stopPropagation(); toggleBookmark(${jobId});">
             ${isBookmarked ? '⭐' : '☆'}
           </button>
           ${esc(j.company)}
@@ -2329,6 +2426,21 @@ function renderDetail(id){
 
 /* ── 이벤트 핸들링 ── */
 document.addEventListener('click', e=>{
+  // Sort mode chip click
+  const sortChip = e.target.closest('.sort-chip');
+  if(sortChip && sortChip.dataset.sort){
+    state.sort = sortChip.dataset.sort;
+    document.querySelectorAll('.sort-chip').forEach(c => {
+      const active = c.dataset.sort === state.sort;
+      c.classList.toggle('active', active);
+      c.setAttribute('aria-pressed', active);
+    });
+    renderList(true);
+    if(typeof renderKanbanView === 'function') renderKanbanView();
+    showToast(`⏱️ 정렬 기준: [${sortChip.textContent.trim()}] 반영 완료`);
+    return;
+  }
+
   if (e.target.closest('#btnOpenCatalogDrawer') || e.target.closest('#btnCatalogBrowse')) {
     openCatalogDrawer();
     return;
@@ -2373,7 +2485,9 @@ document.addEventListener('click', e=>{
   const bmBtn = e.target.closest('.btn-bm');
   if(bmBtn){
     const jid = parseInt(bmBtn.dataset.bmId, 10);
-    toggleBookmark(jid);
+    if(jid && !isNaN(jid)){
+      toggleBookmark(jid);
+    }
     return;
   }
 
@@ -2592,8 +2706,7 @@ function renderKanbanView() {
 window.renderKanbanView = renderKanbanView;
   const kContainer = document.getElementById('kanbanContainer');
   if (!kContainer || typeof JOBS === 'undefined') return;
-
-  // Filtered pool based on current search, category, and fit
+  // Filtered pool based on current search, category, and fit, sorted by deadline / active sort mode
   const filteredJobs = JOBS.filter(j => {
     if (state.cat !== '전체' && j.cat !== state.cat) return false;
     if (state.fit !== 'all' && (j.strategy?.fit || 'B') !== state.fit) return false;
@@ -2604,6 +2717,16 @@ window.renderKanbanView = renderKanbanView;
       if (!text.includes(q)) return false;
     }
     return true;
+  }).sort((a, b) => {
+    const la = level(a), lb = level(b);
+    if ((la === 'done') !== (lb === 'done')) return la === 'done' ? 1 : -1;
+    const na = daysLeft(a.due), nb = daysLeft(b.due);
+    if (na !== null && nb !== null) {
+      if (na !== nb) return na - nb; // earliest deadline at the top!
+    } else if (na !== null) return -1;
+    else if (nb !== null) return 1;
+    const fitWeight = {'S':3, 'A':2, 'B':1};
+    return (fitWeight[b.strategy?.fit] || 0) - (fitWeight[a.strategy?.fit] || 0);
   });
 
   kContainer.innerHTML = PIPELINE_STAGES.map(st => {
@@ -2639,7 +2762,7 @@ window.renderKanbanView = renderKanbanView;
             </div>
             <div class="kjc-top-actions">
               <span class="strat-badge badge-${j.strategy?.fit || 'A'}">Fit ${j.strategy?.fit || 'A'}</span>
-              <button type="button" class="btn-k-bm ${isBm ? 'is-bm' : ''}" title="북마크" onclick="event.stopPropagation(); toggleBookmark(${j.id})">
+              <button type="button" class="btn-k-bm ${isBm ? 'is-bm' : ''}" data-bm-id="${j.id}" title="북마크 토글" onclick="event.stopPropagation(); toggleBookmark(${j.id});">
                 ${isBm ? '⭐' : '☆'}
               </button>
             </div>
@@ -2784,7 +2907,7 @@ window.openStrategyDrawer = openStrategyDrawer;
       <a href="${esc(j.url)}" target="_blank" rel="noopener noreferrer" class="btn-cta" style="font-size:12.5px;padding:6px 14px;">
         🔗 채용공고 원문 바로가기
       </a>
-      <button type="button" class="btn-bm ${isBm ? 'is-bookmarked' : ''}" onclick="toggleBookmark(${j.id}); openStrategyDrawer(${j.id});" style="font-size:13px;display:inline-flex;align-items:center;gap:6px;">
+      <button type="button" class="btn-drawer-bm ${isBm ? 'is-bookmarked' : ''}" data-bm-id="${j.id}" onclick="event.stopPropagation(); toggleBookmark(${j.id}); openStrategyDrawer(${j.id});" style="font-size:13px;display:inline-flex;align-items:center;gap:6px;">
         <span>${isBm ? '⭐ 북마크 해제' : '☆ 북마크 저장'}</span>
       </button>
     </div>
