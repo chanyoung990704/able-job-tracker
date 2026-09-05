@@ -7,6 +7,12 @@ supabase_config.js
 # Vercel
 .vercel
 
+# Variate & Skills
+.variate
+.agents
+.claude
+skills-lock.json
+
 # Dependencies & OS
 node_modules
 .DS_Store
