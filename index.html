@@ -215,6 +215,10 @@ a{color:inherit}
   .row .dday{grid-area:d} .row .co{grid-area:co} .row .role{grid-area:role} .row .row-actions{grid-area:actions}
   .row .cat, .row .type{display:none}
 }
+@media(max-width:560px){
+  .row{grid-template-columns:54px 1fr;grid-template-areas:"d co" "d role" "actions actions";row-gap:6px;padding:12px}
+  .row .row-actions{justify-content:flex-start;padding-top:6px;border-top:1px dashed var(--line-2);gap:8px}
+}
 
 /* ── company cards ── */
 .cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:22px 0 0}
@@ -1492,7 +1496,7 @@ body {
 </section>
 
 <div class="foot">
-  <p><b>출처</b> · 채용공고 리스트 xlsx 3개 회차(2026-03-4주차 42건, 2026-08-3주차 59건, 2026-08-5주차 63건), 2026-09-1주차 백엔드 신입 스캔 62건 및 기업분석보고서 PDF 6건에서 추출했습니다.</p>
+  <p><b>출처</b> · 채용공고 리스트 xlsx 3개 회차(2026-03-4주차 42건, 2026-08-3주차 59건, 2026-08-5주차 63건), 2026-09-1주차 백엔드 신입 스캔 62건, 2026-09-2주차 백엔드 신입 스캔 76건 및 기업분석보고서 PDF 6건에서 추출했습니다.</p>
   <p><b>동기화 &amp; 저장</b> · Supabase 연동 시 클라우드 데이터베이스에 실시간 영구 보관되며, 미연동 시에도 브라우저 LocalStorage에 안전하게 자동 저장됩니다.</p>
 </div>
 
