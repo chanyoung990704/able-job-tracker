@@ -860,6 +860,8 @@ body {
   font-size: 13px;
   cursor: pointer;
   padding: 2px 4px;
+  min-width: 22px;
+  min-height: 22px;
   line-height: 1;
   color: var(--ink-3);
   border-radius: 4px;
@@ -1628,12 +1630,14 @@ const memoDebounceTimers = {};
 const STORAGE_KEY_APPS = 'ABLE_JOB_APPLICATIONS';
 const STORAGE_KEY_CFG = 'ABLE_SUPABASE_CONFIG';
 
+let toastTimer = null;
 function showToast(msg){
   const t = document.getElementById('trackerToast');
   if(!t) return;
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2600);
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
 }
 
 function loadLocalApplications(){
@@ -1946,7 +1950,7 @@ function toggleBookmark(jobId){
 }
 window.toggleBookmark = toggleBookmark;
 
-function setJobStatus(jobId, newStatus){
+function setJobStatus(jobId, newStatus, silent = false){
   const app = window.APPLICATIONS[jobId] || { is_bookmarked: false, memo: '' };
   let isDelete = false;
   if(!newStatus){
@@ -1967,8 +1971,8 @@ function setJobStatus(jobId, newStatus){
     window.APPLICATIONS[jobId] = app;
   }
   saveLocalApplications();
-  renderStats(); renderAppFilters(); renderList(); if(typeof renderKanbanView==="function") renderKanbanView(); if(typeof renderPipelineFunnel==="function") renderPipelineFunnel();
-  showToast(newStatus ? `지원 단계가 [${newStatus}] 로 변경되었습니다.` : '지원 단계가 초기화되었습니다.');
+  renderStats(); renderAppFilters(); renderList(false); if(typeof renderKanbanView==="function") renderKanbanView(); if(typeof renderPipelineFunnel==="function") renderPipelineFunnel();
+  if(!silent) showToast(newStatus ? `지원 단계가 [${newStatus}] 로 변경되었습니다.` : '지원 단계가 초기화되었습니다.');
   syncApplicationToSupabase(jobId, isDelete);
 }
 
@@ -2506,7 +2510,7 @@ document.addEventListener('click', e=>{
   }
 
   // Bookmark toggle
-  const bmBtn = e.target.closest('.btn-bm');
+  const bmBtn = e.target.closest('.btn-bm, .btn-k-bm');
   if(bmBtn){
     const jid = parseInt(bmBtn.dataset.bmId, 10);
     if(jid && !isNaN(jid)){
@@ -2799,7 +2803,7 @@ window.renderKanbanView = renderKanbanView;
               <button type="button" class="btn-k-bm ${isBm ? 'is-bm' : ''}" data-bm-id="${j.id}" title="북마크 토글" onclick="event.stopPropagation(); toggleBookmark(${j.id});">
                 ${isBm ? '⭐' : '☆'}
               </button>
-              <button type="button" class="btn-k-del" data-del-id="${j.id}" title="파이프라인에서 삭제" onclick="event.stopPropagation(); removeJobFromKanban(${j.id});">
+              <button type="button" class="btn-k-del" data-del-id="${j.id}" title="파이프라인에서 삭제" aria-label="파이프라인에서 삭제" onclick="if(event && event.stopPropagation) event.stopPropagation(); removeJobFromKanban(${j.id});">
                 ✕
               </button>
             </div>
@@ -2887,7 +2891,7 @@ window.handleKanbanDrop = handleKanbanDrop;
   if (col) col.classList.remove('is-drag-over');
   if (!draggedJobId) return;
 
-  setJobStatus(draggedJobId, targetStatus);
+  setJobStatus(draggedJobId, targetStatus, true);
   const j = JOBS.find(x => x.id === draggedJobId);
   showToast(`🚀 [${j ? j.company : '공고'}] '${targetStatus}' 단계로 이동되었습니다.`);
   draggedJobId = null;
@@ -2906,7 +2910,7 @@ window.advanceJobStatus = advanceJobStatus;
   const nextIdx = (curIdx + 1) % flow.length;
   const nextStatus = flow[nextIdx];
 
-  setJobStatus(jobId, nextStatus);
+  setJobStatus(jobId, nextStatus, true);
   const j = JOBS.find(x => x.id === jobId);
   showToast(`🚀 [${j ? j.company : '공고'}] '${nextStatus}' 단계로 전진했습니다.`);
   renderKanbanView();
@@ -2924,7 +2928,7 @@ function removeJobFromKanban(jobId, skipConfirm = false) {
     return;
   }
   if (typeof closeStrategyDrawer === 'function') closeStrategyDrawer();
-  setJobStatus(jobId, '');
+  setJobStatus(jobId, '', true);
   showToast(`🗑️ [${coName}] 파이프라인에서 삭제되었습니다.`);
 }
 window.removeJobFromKanban = removeJobFromKanban;
@@ -3095,7 +3099,7 @@ window.renderCatalogDrawerList = function(q = '') {
 };
 
 window.assignJobFromCatalog = function(jobId, status) {
-  setJobStatus(jobId, status);
+  setJobStatus(jobId, status, true);
   const j = JOBS.find(x => x.id === jobId);
   if (status) {
     showToast(`🚀 [${j ? j.company : '공고'}] '${status}' 단계로 추가되었습니다.`);
