@@ -17,19 +17,36 @@
     booted = true;
     if(typeof window.initSupabase === 'function') window.initSupabase(false);
   }
-  function loadScript(src, fallback){
-    var s = document.createElement('script');
-    s.src = src;
-    s.onload = onReady;
-    if(fallback){
-      s.onerror = function(){ loadScript(fallback, null); };
-    } else {
-      s.onerror = onReady;
+  function tryFetchScript(src, fallback){
+    if (location.protocol === 'file:') {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = onReady;
+      s.onerror = function(){ if(fallback) tryFetchScript(fallback, null); else onReady(); };
+      document.head.appendChild(s);
+      return;
     }
-    document.head.appendChild(s);
+    fetch(src)
+      .then(function(res){
+        var ct = res.headers.get('content-type') || '';
+        if(res.ok && !ct.includes('text/html')){
+          return res.text().then(function(code){
+            var s = document.createElement('script');
+            s.textContent = code;
+            document.head.appendChild(s);
+            onReady();
+          });
+        }
+        if(fallback) tryFetchScript(fallback, null);
+        else onReady();
+      })
+      .catch(function(){
+        if(fallback) tryFetchScript(fallback, null);
+        else onReady();
+      });
   }
   window.__bootSupabase = onReady;
-  loadScript('supabase_config.js', '08_기업분석_채용정보/supabase_config.js');
+  tryFetchScript('supabase_config.js', '08_기업분석_채용정보/supabase_config.js');
 })();
 </script>
 <style>
@@ -1571,6 +1588,40 @@ body {
   </div>
 </div>
 
+<!-- Slide-Over Strategy Drawer -->
+<div id="drawerBackdrop" class="strategy-drawer-backdrop" onclick="closeStrategyDrawer()"></div>
+<div id="strategyDrawer" class="strategy-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerCo">
+  <div class="drawer-header">
+    <div class="drawer-header-left">
+      <h3 id="drawerCo">기업명</h3>
+      <p id="drawerRole">포지션 정보</p>
+    </div>
+    <button type="button" class="drawer-close-btn" onclick="closeStrategyDrawer()" aria-label="닫기">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</div>
+
+<!-- Catalog Quick Add Drawer -->
+<div id="catalogDrawerBackdrop" class="strategy-drawer-backdrop" onclick="closeCatalogDrawer()"></div>
+<div id="catalogDrawer" class="strategy-drawer" role="dialog" aria-modal="true" aria-labelledby="catalogDrawerTitle">
+  <div class="drawer-header">
+    <div class="drawer-header-left">
+      <h3 id="catalogDrawerTitle">➕ 302개 공고 탐색 &amp; 파이프라인 담기</h3>
+      <p>원하는 기업의 공고를 검색하고 클릭 한 번으로 칸반 전형 단계에 추가하세요.</p>
+    </div>
+    <button type="button" class="drawer-close-btn" onclick="closeCatalogDrawer()" aria-label="닫기">✕</button>
+  </div>
+  <div style="padding:14px 24px;border-bottom:1px solid var(--line-2);background:var(--surface-2);display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+    <input type="search" id="catalogDrawerSearch" class="cfg-input" placeholder="기업명, 직무, 기술스택(Java, Kafka 등) 검색..." style="flex:1;min-width:200px;" oninput="renderCatalogDrawerList(this.value)">
+    <div style="display:flex;gap:4px;">
+      <button type="button" class="strat-chip" data-drawer-fit="all" onclick="filterCatalogDrawerFit('all')">전체</button>
+      <button type="button" class="strat-chip" data-drawer-fit="S" onclick="filterCatalogDrawerFit('S')">Fit S</button>
+      <button type="button" class="strat-chip" data-drawer-fit="A" onclick="filterCatalogDrawerFit('A')">Fit A</button>
+    </div>
+  </div>
+  <div class="drawer-body" id="catalogDrawerBody" style="gap:10px;padding:16px 24px;"></div>
+</div>
+
 <div id="trackerToast" class="tracker-toast"></div>
 
 <script>
@@ -2954,8 +3005,12 @@ function removeJobFromKanban(jobId, skipConfirm = true) {
   if (skipConfirm === false && typeof confirm === 'function' && !confirm(`[${coName}] 공고를 파이프라인에서 삭제하시겠습니까?`)) {
     return;
   }
-  if (typeof closeStrategyDrawer === 'function') closeStrategyDrawer();
-  if (typeof window.closeStrategyDrawer === 'function') window.closeStrategyDrawer();
+  try {
+    if (typeof closeStrategyDrawer === 'function') closeStrategyDrawer();
+    else if (typeof window.closeStrategyDrawer === 'function') window.closeStrategyDrawer();
+  } catch (e) {
+    console.warn('closeStrategyDrawer error ignored:', e);
+  }
   setJobStatus(jobId, '', true);
   showToast(`🗑️ [${coName}] 파이프라인에서 삭제되었습니다.`);
 }
@@ -3042,14 +3097,18 @@ window.openStrategyDrawer = openStrategyDrawer;
     </div>
   `;
 
-  $('#drawerBackdrop').classList.add('is-open');
-  $('#strategyDrawer').classList.add('is-open');
+  const bd = $('#drawerBackdrop');
+  const dr = $('#strategyDrawer');
+  if (bd) bd.classList.add('is-open');
+  if (dr) dr.classList.add('is-open');
 };
 
 function closeStrategyDrawer() {
-window.closeStrategyDrawer = closeStrategyDrawer;
-  $('#drawerBackdrop').classList.remove('is-open');
-  $('#strategyDrawer').classList.remove('is-open');
+  window.closeStrategyDrawer = closeStrategyDrawer;
+  const bd = $('#drawerBackdrop');
+  const dr = $('#strategyDrawer');
+  if (bd) bd.classList.remove('is-open');
+  if (dr) dr.classList.remove('is-open');
 };
 
 function setJobStatusFromDrawer(jobId, status) {
