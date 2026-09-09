@@ -1645,9 +1645,34 @@ function loadLocalApplications(){
     const raw = localStorage.getItem(STORAGE_KEY_APPS);
     if(raw){
       window.APPLICATIONS = JSON.parse(raw);
+    } else {
+      window.APPLICATIONS = {};
+    }
+
+    // One-time purge of legacy dummy demo data
+    const PURGE_KEY = 'able_demo_purged_v3';
+    if(!localStorage.getItem(PURGE_KEY)){
+      const demoJobIds = [1, 2, 4, 5, 11, 19, 22, 26, 28, 33, 36, 42, 165, 166, 167, 170, 172];
+      let changed = false;
+      demoJobIds.forEach(id => {
+        const app = window.APPLICATIONS[id];
+        if(app && (app.memo?.includes('어필') || app.memo?.includes('강조') || app.memo?.includes('등록 완료') || app.memo?.includes('AIVLE') || app.memo?.includes('트랜잭션') || app.status)){
+          if(app.is_bookmarked && !app.memo?.includes('AIVLE')){
+            delete app.status;
+          } else {
+            delete window.APPLICATIONS[id];
+          }
+          changed = true;
+        }
+      });
+      if(changed){
+        saveLocalApplications();
+      }
+      localStorage.setItem(PURGE_KEY, '1');
     }
   }catch(e){
     console.warn('Local applications load error:', e);
+    window.APPLICATIONS = {};
   }
 }
 
@@ -2522,9 +2547,11 @@ document.addEventListener('click', e=>{
   // Kanban delete button
   const kDelBtn = e.target.closest('.btn-k-del');
   if(kDelBtn){
+    e.stopPropagation();
+    e.preventDefault();
     const jid = parseInt(kDelBtn.dataset.delId, 10);
     if(jid && !isNaN(jid)){
-      removeJobFromKanban(jid);
+      removeJobFromKanban(jid, true);
     }
     return;
   }
@@ -2792,7 +2819,7 @@ window.renderKanbanView = renderKanbanView;
              draggable="true"
              ondragstart="handleKanbanDragStart(event, ${j.id})"
              ondragend="handleKanbanDragEnd(event)"
-             onclick="openStrategyDrawer(${j.id})">
+             onclick="if(!event.target.closest('.btn-k-del, .btn-k-bm')) openStrategyDrawer(${j.id});">
           <div class="kjc-header">
             <div class="kjc-co-group">
               <span class="kjc-avatar">${esc(j.company.slice(0, 2))}</span>
@@ -2803,7 +2830,7 @@ window.renderKanbanView = renderKanbanView;
               <button type="button" class="btn-k-bm ${isBm ? 'is-bm' : ''}" data-bm-id="${j.id}" title="북마크 토글" onclick="event.stopPropagation(); toggleBookmark(${j.id});">
                 ${isBm ? '⭐' : '☆'}
               </button>
-              <button type="button" class="btn-k-del" data-del-id="${j.id}" title="파이프라인에서 삭제" aria-label="파이프라인에서 삭제" onclick="if(event && event.stopPropagation) event.stopPropagation(); removeJobFromKanban(${j.id});">
+              <button type="button" class="btn-k-del" data-del-id="${j.id}" title="파이프라인에서 삭제" aria-label="파이프라인에서 삭제" onclick="event.stopPropagation(); event.preventDefault(); removeJobFromKanban(${j.id}, true);">
                 ✕
               </button>
             </div>
@@ -2918,16 +2945,17 @@ window.advanceJobStatus = advanceJobStatus;
 };
 
 // 4-1. Kanban Item Removal from Pipeline
-function removeJobFromKanban(jobId, skipConfirm = false) {
+function removeJobFromKanban(jobId, skipConfirm = true) {
   window.removeJobFromKanban = removeJobFromKanban;
   jobId = parseInt(jobId, 10);
   if (!jobId || isNaN(jobId)) return;
   const j = JOBS.find(x => x.id === jobId);
   const coName = j ? j.company : '공고';
-  if (!skipConfirm && typeof confirm === 'function' && !confirm(`[${coName}] 공고를 파이프라인에서 삭제하시겠습니까?`)) {
+  if (skipConfirm === false && typeof confirm === 'function' && !confirm(`[${coName}] 공고를 파이프라인에서 삭제하시겠습니까?`)) {
     return;
   }
   if (typeof closeStrategyDrawer === 'function') closeStrategyDrawer();
+  if (typeof window.closeStrategyDrawer === 'function') window.closeStrategyDrawer();
   setJobStatus(jobId, '', true);
   showToast(`🗑️ [${coName}] 파이프라인에서 삭제되었습니다.`);
 }
@@ -2979,6 +3007,9 @@ window.openStrategyDrawer = openStrategyDrawer;
         ${stageBtnsHtml}
         <button type="button" class="app-status-btn btn-clear-status" onclick="setJobStatusFromDrawer(${j.id}, null)">
           ✕ 상태 해제
+        </button>
+        <button type="button" class="app-status-btn btn-del-pipeline" onclick="removeJobFromKanban(${j.id}, true); closeStrategyDrawer();" style="color:#EF4444;border-color:rgba(239,68,68,0.4);" title="파이프라인에서 완전히 삭제">
+          🗑️ 파이프라인에서 삭제
         </button>
       </div>
 
@@ -3147,10 +3178,8 @@ window.initSupabase = initSupabase;
 /* ── 초기화 및 부팅 ── */
 loadLocalApplications();
 
-// Auto seed if completely empty on first visit
-if (Object.keys(window.APPLICATIONS || {}).length === 0) {
-  seedDemoApplications();
-}
+// Clean startup: Do not auto-seed dummy data into user pipeline
+if(!window.APPLICATIONS) window.APPLICATIONS = {};
 
 renderStats();
 renderChips();
