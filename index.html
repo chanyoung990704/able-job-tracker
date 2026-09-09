@@ -46,7 +46,12 @@
       });
   }
   window.__bootSupabase = onReady;
-  tryFetchScript('supabase_config.js', '08_기업분석_채용정보/supabase_config.js');
+  var isLocalDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+  if (isLocalDev) {
+    tryFetchScript('supabase_config.js', '08_기업분석_채용정보/supabase_config.js');
+  } else {
+    onReady();
+  }
 })();
 </script>
 <style>
@@ -1295,6 +1300,30 @@ body {
 }
 
 /* Catalog Drawer Item Card */
+/* Drawer Fit Chips */
+.drawer-fit-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.drawer-fit-chip:hover {
+  background: var(--surface-3);
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+.drawer-fit-chip[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  font-weight: 700;
+}
+
 .catalog-item-card {
   background: var(--surface-2);
   border: 1px solid var(--line-2);
@@ -1614,9 +1643,9 @@ body {
   <div style="padding:14px 24px;border-bottom:1px solid var(--line-2);background:var(--surface-2);display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
     <input type="search" id="catalogDrawerSearch" class="cfg-input" placeholder="기업명, 직무, 기술스택(Java, Kafka 등) 검색..." style="flex:1;min-width:200px;" oninput="renderCatalogDrawerList(this.value)">
     <div style="display:flex;gap:4px;">
-      <button type="button" class="strat-chip" data-drawer-fit="all" onclick="filterCatalogDrawerFit('all')">전체</button>
-      <button type="button" class="strat-chip" data-drawer-fit="S" onclick="filterCatalogDrawerFit('S')">Fit S</button>
-      <button type="button" class="strat-chip" data-drawer-fit="A" onclick="filterCatalogDrawerFit('A')">Fit A</button>
+      <button type="button" class="drawer-fit-chip" data-drawer-fit="all" aria-pressed="true" onclick="event.stopPropagation(); filterCatalogDrawerFit('all')">전체</button>
+      <button type="button" class="drawer-fit-chip" data-drawer-fit="S" aria-pressed="false" onclick="event.stopPropagation(); filterCatalogDrawerFit('S')">Fit S</button>
+      <button type="button" class="drawer-fit-chip" data-drawer-fit="A" aria-pressed="false" onclick="event.stopPropagation(); filterCatalogDrawerFit('A')">Fit A</button>
     </div>
   </div>
   <div class="drawer-body" id="catalogDrawerBody" style="gap:10px;padding:16px 24px;"></div>
@@ -1701,7 +1730,7 @@ function loadLocalApplications(){
     }
 
     // One-time purge of legacy dummy demo data
-    const PURGE_KEY = 'able_demo_purged_v3';
+    const PURGE_KEY = 'able_demo_purged_v4';
     if(!localStorage.getItem(PURGE_KEY)){
       const demoJobIds = [1, 2, 4, 5, 11, 19, 22, 26, 28, 33, 36, 42, 165, 166, 167, 170, 172];
       let changed = false;
@@ -2563,15 +2592,18 @@ document.addEventListener('click', e=>{
     return;
   }
 
+  // Ignore clicks originating from inside slide-over drawers
+  if (e.target.closest('#catalogDrawer') || e.target.closest('#strategyDrawer')) return;
+
   // Category chip
   const chip = e.target.closest('.chip');
   if(chip){ state.cat = chip.dataset.cat; renderChips(); renderList(); return; }
   
   // Fit filter chip
-  const stratChip = e.target.closest('.strat-chip');
+  const stratChip = e.target.closest('.strat-chip[data-fit]');
   if(stratChip){
     state.fit = stratChip.dataset.fit;
-    document.querySelectorAll('.strat-chip').forEach(c=>c.setAttribute('aria-pressed', c===stratChip));
+    document.querySelectorAll('.strat-chip[data-fit]').forEach(c=>c.setAttribute('aria-pressed', c===stratChip));
     renderList();
     return;
   }
