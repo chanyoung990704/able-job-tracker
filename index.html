@@ -854,6 +854,25 @@ body {
 .btn-k-bm.is-bm {
   color: #F59E0B;
 }
+.btn-k-del {
+  background: none;
+  border: 0;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 4px;
+  line-height: 1;
+  color: var(--ink-3);
+  border-radius: 4px;
+  transition: transform 0.12s, color 0.12s, background 0.12s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-k-del:hover {
+  transform: scale(1.15);
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.15);
+}
 
 .kjc-role {
   font-size: 13px;
@@ -2207,8 +2226,8 @@ function renderList(reset = true) {
     const fit = strat.fit || 'A';
     const isOpen = state.openedId === j._idx;
 
-    const jobId = j.id || (j._idx + 1);
-    const app = (window.APPLICATIONS && (window.APPLICATIONS[jobId] || window.APPLICATIONS[j._idx])) || {};
+    const jobId = j.id || (j._idx !== undefined ? j._idx + 1 : 1);
+    const app = (window.APPLICATIONS && window.APPLICATIONS[jobId]) || {};
     const isBookmarked = !!app.is_bookmarked;
     const appStatus = app.status || null;
     const statusSlug = appStatus ? appStatus.replace('/', '_') : '';
@@ -2496,6 +2515,16 @@ document.addEventListener('click', e=>{
     return;
   }
 
+  // Kanban delete button
+  const kDelBtn = e.target.closest('.btn-k-del');
+  if(kDelBtn){
+    const jid = parseInt(kDelBtn.dataset.delId, 10);
+    if(jid && !isNaN(jid)){
+      removeJobFromKanban(jid);
+    }
+    return;
+  }
+
   // Application status button click
   const stBtn = e.target.closest('.app-status-btn');
   if(stBtn){
@@ -2661,7 +2690,7 @@ function renderPipelineFunnel() {
 
   let stepsHtml = PIPELINE_STAGES.map(st => {
     const matchingJobs = JOBS.filter(j => {
-      const app = (window.APPLICATIONS && (window.APPLICATIONS[j.id] || window.APPLICATIONS[j._idx])) || {};
+      const app = (window.APPLICATIONS && window.APPLICATIONS[j.id]) || {};
       return app.status === st.key;
     });
     const count = matchingJobs.length;
@@ -2736,12 +2765,12 @@ window.renderKanbanView = renderKanbanView;
 
   kContainer.innerHTML = PIPELINE_STAGES.map(st => {
     const matchingJobs = filteredJobs.filter(j => {
-      const app = (window.APPLICATIONS && (window.APPLICATIONS[j.id] || window.APPLICATIONS[j._idx])) || {};
+      const app = (window.APPLICATIONS && window.APPLICATIONS[j.id]) || {};
       return app.status === st.key;
     });
 
     const cardsHtml = matchingJobs.map(j => {
-      const app = (window.APPLICATIONS && (window.APPLICATIONS[j.id] || window.APPLICATIONS[j._idx])) || {};
+      const app = (window.APPLICATIONS && window.APPLICATIONS[j.id]) || {};
       const isBm = app.is_bookmarked;
       const memo = app.memo || '';
       const dday = ddayLabel(j);
@@ -2769,6 +2798,9 @@ window.renderKanbanView = renderKanbanView;
               <span class="strat-badge badge-${j.strategy?.fit || 'A'}">Fit ${j.strategy?.fit || 'A'}</span>
               <button type="button" class="btn-k-bm ${isBm ? 'is-bm' : ''}" data-bm-id="${j.id}" title="북마크 토글" onclick="event.stopPropagation(); toggleBookmark(${j.id});">
                 ${isBm ? '⭐' : '☆'}
+              </button>
+              <button type="button" class="btn-k-del" data-del-id="${j.id}" title="파이프라인에서 삭제" onclick="event.stopPropagation(); removeJobFromKanban(${j.id});">
+                ✕
               </button>
             </div>
           </div>
@@ -2880,6 +2912,22 @@ window.advanceJobStatus = advanceJobStatus;
   renderKanbanView();
   renderPipelineFunnel();
 };
+
+// 4-1. Kanban Item Removal from Pipeline
+function removeJobFromKanban(jobId, skipConfirm = false) {
+  window.removeJobFromKanban = removeJobFromKanban;
+  jobId = parseInt(jobId, 10);
+  if (!jobId || isNaN(jobId)) return;
+  const j = JOBS.find(x => x.id === jobId);
+  const coName = j ? j.company : '공고';
+  if (!skipConfirm && typeof confirm === 'function' && !confirm(`[${coName}] 공고를 파이프라인에서 삭제하시겠습니까?`)) {
+    return;
+  }
+  if (typeof closeStrategyDrawer === 'function') closeStrategyDrawer();
+  setJobStatus(jobId, '');
+  showToast(`🗑️ [${coName}] 파이프라인에서 삭제되었습니다.`);
+}
+window.removeJobFromKanban = removeJobFromKanban;
 
 // 5. Slide-Over Strategy Drawer Logic
 function openStrategyDrawer(jobId) {
@@ -3021,7 +3069,7 @@ window.renderCatalogDrawerList = function(q = '') {
   const stages = ['관심', '서류준비', '서류제출', '면접대기', '최종합격'];
 
   container.innerHTML = filtered.slice(0, 50).map(j => {
-    const app = (window.APPLICATIONS && (window.APPLICATIONS[j.id] || window.APPLICATIONS[j._idx])) || {};
+    const app = (window.APPLICATIONS && window.APPLICATIONS[j.id]) || {};
     const curStatus = app.status || '';
 
     const stageBtns = stages.map(st => `
