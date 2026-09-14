@@ -2365,7 +2365,7 @@ function renderList(reset = true) {
           <button class="btn-add-to-kanban" type="button" onclick="advanceJobStatus(${jobId})" title="칸반 파이프라인 단계 추가/전진">
             + 칸반담기
           </button>
-          <button class="btn-strat" type="button" data-strat-idx="${j._idx}">맞춤 전략</button>
+          <button class="btn-strat" type="button" data-strat-idx="${j._idx}" onclick="event.stopPropagation(); toggleStrat(${j._idx});">맞춤 전략</button>
           <a class="btn-link" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer">공고 ↗</a>
         </span>
       </div>
@@ -2557,6 +2557,17 @@ function renderDetail(id){
   $('#detail').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
+function toggleStrat(idx) {
+  state.openedId = state.openedId === idx ? null : idx;
+  renderList(false);
+  if(state.openedId !== null){
+    setTimeout(()=>{
+      const el = document.getElementById('job-wrap-'+idx);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }, 50);
+  }
+}
+
 /* ── 이벤트 핸들링 ── */
 document.addEventListener('click', e=>{
   // Sort mode chip click
@@ -2653,14 +2664,7 @@ document.addEventListener('click', e=>{
   const row = e.target.closest('.row');
   if(stratBtn || row){
     const idx = parseInt((stratBtn ? stratBtn.dataset.stratIdx : row.dataset.idx), 10);
-    state.openedId = state.openedId === idx ? null : idx;
-    renderList(false);
-    if(state.openedId !== null){
-      setTimeout(()=>{
-        const el = document.getElementById('job-wrap-'+idx);
-        if(el) el.scrollIntoView({behavior:'smooth', block:'nearest'});
-      }, 50);
-    }
+    toggleStrat(idx);
     return;
   }
 
