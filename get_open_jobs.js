@@ -11,7 +11,7 @@ async function main() {
     }
   });
   const data = await res.json();
-  const today = '2026-09-09';
+  const today = '2026-09-14';
 
   // Filter open jobs: due >= today or due is null (상시채용)
   const openJobs = data.filter(j => {
