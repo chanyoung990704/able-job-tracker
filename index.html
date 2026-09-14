@@ -3018,15 +3018,24 @@ window.handleKanbanDrop = handleKanbanDrop;
 function advanceJobStatus(jobId) {
 window.advanceJobStatus = advanceJobStatus;
   const app = (window.APPLICATIONS && window.APPLICATIONS[jobId]) || {};
-  const curStatus = app.status || '관심';
+  const curStatus = app.status;
   const flow = ['관심', '서류준비', '서류제출', '면접대기', '최종합격'];
-  const curIdx = flow.indexOf(curStatus);
-  const nextIdx = (curIdx + 1) % flow.length;
-  const nextStatus = flow[nextIdx];
+  let nextStatus;
+  if (!curStatus) {
+    nextStatus = '관심';
+  } else {
+    const curIdx = flow.indexOf(curStatus);
+    const nextIdx = curIdx >= 0 ? (curIdx + 1) % flow.length : 0;
+    nextStatus = flow[nextIdx];
+  }
 
   setJobStatus(jobId, nextStatus, true);
   const j = JOBS.find(x => x.id === jobId);
-  showToast(`🚀 [${j ? j.company : '공고'}] '${nextStatus}' 단계로 전진했습니다.`);
+  if (!curStatus) {
+    showToast(`🚀 [${j ? j.company : '공고'}] 칸반 파이프라인('관심')에 추가되었습니다.`);
+  } else {
+    showToast(`🚀 [${j ? j.company : '공고'}] '${nextStatus}' 단계로 전진했습니다.`);
+  }
   renderKanbanView();
   renderPipelineFunnel();
 };

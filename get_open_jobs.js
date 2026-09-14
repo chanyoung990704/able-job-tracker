@@ -28,7 +28,7 @@ async function main() {
   });
 
   console.log('Total jobs in DB:', data.length);
-  console.log('Open jobs count (from 2026-09-09):', openJobs.length);
+  console.log('Open jobs count (from 2026-09-14):', openJobs.length);
   
   const result = openJobs.map((j, i) => {
     const strat = Array.isArray(j.job_strategies) ? (j.job_strategies[0] || null) : (j.job_strategies || null);
