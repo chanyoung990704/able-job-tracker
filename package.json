@@ -14,5 +14,8 @@
     "aivle"
   ],
   "author": "Park Chanyoung",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
 }
