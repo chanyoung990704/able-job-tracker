@@ -5,7 +5,8 @@
   "description": "에이블 취업 트래커 - Supabase & Vercel 기반 채용 공고 및 맞춤형 지원전략 대시보드",
   "scripts": {
     "start": "npx serve .",
-    "deploy": "npx vercel --prod"
+    "deploy": "npx vercel --prod",
+    "test": "node kanban-layout.test.cjs"
   },
   "keywords": [
     "job-tracker",
