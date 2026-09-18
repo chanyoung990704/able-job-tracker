@@ -64,9 +64,31 @@ npx vercel
 
 ```
 job-tracker-web/
-├── index.html              # 메인 대시보드 (SPA)
+├── index.html              # 마크업 + 모듈 진입점 (빌드 스텝 없음)
+├── styles/
+│   ├── base.css            # 기본 스타일
+│   └── career-design.css   # base.css를 덮어쓰는 레이어 (로드 순서 중요)
+├── data/
+│   ├── jobs.json           # 공고 스냅샷 (부팅 시 fetch)
+│   └── companies.json      # 기업분석 스냅샷
+├── src/
+│   ├── main.js             # 부팅 및 window.App 노출
+│   ├── constants.js        # PIPELINE_STAGES / STATUSES (상태 정의의 단일 출처)
+│   ├── state.js            # 필터·검색·정렬·뷰 모드 (비영속)
+│   ├── store.js            # 지원 현황 + localStorage + subscribe()
+│   ├── data.js             # JOBS / COS 보관
+│   ├── selectors.js        # visible(), getCats()
+│   ├── util.js             # 포맷 헬퍼
+│   ├── actions.js          # 상태를 바꾸는 동작 전부
+│   ├── events.js           # 모든 이벤트 위임 (data-action 기반)
+│   ├── supabase.js         # 설정·연결·동기화·대기 표시
+│   ├── toast.js            # 공용 토스트
+│   └── render/
+│       ├── index.js        # 렌더 스케줄러 (rAF 합치기, 숨겨진 뷰 생략)
+│       └── *.js            # shelves / kanban / funnel / company / drawer / catalog
 ├── api/
 │   └── config.js           # Vercel Serverless Function (환경변수 주입 엔드포인트)
+├── kanban-layout.test.cjs  # Playwright 레이아웃·상호작용 테스트 (npm test)
 ├── vercel.json             # Vercel 라우팅, 보안 헤더 및 rewrite 규칙
 ├── package.json            # 프로젝트 메타데이터
 ├── .env.example            # Vercel 환경 변수 가이드
