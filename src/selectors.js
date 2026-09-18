@@ -55,40 +55,53 @@ export function visible() {
   });
 
   // Resolve each job's sort keys once instead of inside the comparator.
-  const meta = new Map(kept.map(j => [j, {
+  const meta = new Map(kept.map(j => [j, sortKeys(j)]));
+  return kept.sort(compareBy(state.sort || 'due', j => meta.get(j)));
+}
+
+/** The values the comparator needs, computed once per job rather than per comparison. */
+export function sortKeys(j) {
+  return {
     done: level(j) === 'done',
     days: daysLeft(j.due),
-    fit: FIT_WEIGHT[j.strategy?.fit] || 0
-  }]));
+    fit: FIT_WEIGHT[j.strategy?.fit] || 0,
+    company: j.company
+  };
+}
 
-  const sortMode = state.sort || 'due';
-
-  return kept.sort((a, b) => {
-    const ma = meta.get(a), mb = meta.get(b);
+/**
+ * Builds the comparator for a sort mode. Exported so it can be checked directly
+ * for transitivity — a comparator that is not a consistent total preorder
+ * produces an order that depends on the engine's sort algorithm, which is
+ * exactly the bug this shape fixes.
+ */
+export function compareBy(mode, keysOf = sortKeys) {
+  return (a, b) => {
+    const ma = keysOf(a), mb = keysOf(b);
 
     // Closed postings always sink to the bottom.
     if (ma.done !== mb.done) return ma.done ? 1 : -1;
 
-    if (sortMode === 'due') {
-      if (ma.days !== null && mb.days !== null) {
-        if (ma.days !== mb.days) return ma.days - mb.days;
-      } else if (ma.days !== null) {
-        return -1;
-      } else if (mb.days !== null) {
-        return 1;
-      }
+    if (mode === 'fit') {
       if (ma.fit !== mb.fit) return mb.fit - ma.fit;
-      return a.company.localeCompare(b.company, 'ko');
+      // Within a fit grade, dated postings come first and sort by deadline;
+      // undated ones follow, by name. The original compared dated pairs by
+      // deadline but fell back to name whenever either side was undated, which
+      // made the comparator non-transitive: for 한국산업은행 (D-169),
+      // 에스엘 (D-166) and 인플루엔셜 (no deadline) it reported A<B and B<C but
+      // A>C, so the resulting order depended on the engine's sort algorithm and
+      // differed between Chromium and Node.
+      if ((ma.days === null) !== (mb.days === null)) return ma.days === null ? 1 : -1;
+      if (ma.days !== null && ma.days !== mb.days) return ma.days - mb.days;
+      return ma.company.localeCompare(mb.company, 'ko');
     }
 
-    if (sortMode === 'fit') {
-      if (ma.fit !== mb.fit) return mb.fit - ma.fit;
-      if (ma.days !== null && mb.days !== null && ma.days !== mb.days) return ma.days - mb.days;
-      return a.company.localeCompare(b.company, 'ko');
-    }
+    if (mode === 'name') return ma.company.localeCompare(mb.company, 'ko');
 
-    if (sortMode === 'name') return a.company.localeCompare(b.company, 'ko');
-
-    return 0;
-  });
+    // 'due' (default): dated postings first, by deadline, then fit, then name.
+    if ((ma.days === null) !== (mb.days === null)) return ma.days === null ? 1 : -1;
+    if (ma.days !== null && ma.days !== mb.days) return ma.days - mb.days;
+    if (ma.fit !== mb.fit) return mb.fit - ma.fit;
+    return ma.company.localeCompare(mb.company, 'ko');
+  };
 }

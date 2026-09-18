@@ -31,7 +31,40 @@ async function serveRepo(page) {
   });
 }
 
+/**
+ * The sort comparators must each be a consistent total preorder. A comparator
+ * that is not — as the 추천적합순 one was, comparing dated pairs by deadline but
+ * undated pairs by name — yields an order that depends on the engine's sort
+ * algorithm, so the same data listed differently in Chromium and in Node.
+ */
+async function checkComparators() {
+  const { compareBy, sortKeys } = await import('./src/selectors.js');
+  const jobs = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/jobs.json'), 'utf8'));
+  const sample = jobs.filter((_, i) => i % 9 === 0).slice(0, 44);
+  const keys = new Map(sample.map(j => [j, sortKeys(j)]));
+  const keysOf = j => keys.get(j);
+
+  for (const mode of ['due', 'fit', 'name']) {
+    const cmp = compareBy(mode, keysOf);
+    const sgn = (a, b) => Math.sign(cmp(a, b));
+    for (const a of sample) {
+      for (const b of sample) {
+        // sum rather than equality: Math.sign gives -0, which strict equality
+        // distinguishes from 0.
+        assert.equal(sgn(a, b) + sgn(b, a), 0, `sort=${mode} is not antisymmetric`);
+        for (const c of sample) {
+          const ab = sgn(a, b), bc = sgn(b, c);
+          if (ab <= 0 && bc <= 0) assert.ok(sgn(a, c) <= 0, `sort=${mode} is not transitive`);
+        }
+      }
+    }
+    console.log(`  sort=${mode} is a consistent total preorder`);
+  }
+}
+
 (async () => {
+  await checkComparators();
+
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
   const pageErrors = [];
