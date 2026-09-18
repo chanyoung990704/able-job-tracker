@@ -9,13 +9,29 @@
  * script needs the service-role key and refuses to run without it rather than
  * silently no-opping, which would leave a stale catalog looking healthy.
  *
- *   SUPABASE_SERVICE_ROLE_KEY=... node upsert_jobs.js [--dry-run] [--since=399]
+ *   node upsert_jobs.js [--dry-run] [--since=399]
+ *
+ * The key is read from the environment, or from a gitignored .env file.
  *
  * --dry-run  print what would be sent and exit without writing.
  * --since=N  only push records with id >= N (default: all).
  */
 
 const fs = require('fs');
+
+/**
+ * Minimal .env reader so `node upsert_jobs.js` works with no wrapper. Only
+ * KEY=value lines, no quoting or interpolation — that is all .env holds here.
+ * A real environment variable always wins. .env is gitignored.
+ */
+function loadEnv(file) {
+  if (!fs.existsSync(file)) return;
+  for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
+    const m = line.match(/^\s*([A-Z_][A-Z0-9_]*)\s*=\s*(.*)$/);
+    if (m && process.env[m[1]] === undefined) process.env[m[1]] = m[2].trim();
+  }
+}
+loadEnv('.env');
 
 const BASE = process.env.SUPABASE_URL || 'https://kthfmifqlcrqfwmbvldk.supabase.co';
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
