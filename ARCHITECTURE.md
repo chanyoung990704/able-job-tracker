@@ -20,7 +20,7 @@ Able Job Tracker (에이블 취업 트래커) is a personal job-search dashboard
 
 It also includes company analysis cards (summary, SWOT, values, hiring process, eligibility, links).
 
-The job data is refreshed periodically from job-site scans (e.g. jasoseol); scans are reviewed and upserted into Supabase (see commits like `data: upsert reviewed September 17 job postings`).
+The job data is refreshed periodically from job-site scans (원티드 / 점핏 / 자소설닷컴). A reviewed spreadsheet is merged into `data/jobs.json` — new postings get a fresh contiguous id block and the collection-round `issue` label, postings already present are matched by `url` and only have their deadline refreshed so the hand-written strategy is never overwritten — and `upsert_jobs.js` pushes the result to Supabase.
 
 ## Architecture
 
@@ -43,7 +43,7 @@ The job data is refreshed periodically from job-site scans (e.g. jasoseol); scan
 └────────────────────────────────────────────────────────────────┘
       ▲
       │ offline data pipeline (outside this repo)
-  job-site scans → reviewed xlsx → upsert / audit scripts
+  job-site scans → reviewed xlsx → data/jobs.json → upsert_jobs.js
 ```
 
 ### Components
@@ -68,6 +68,7 @@ The job data is refreshed periodically from job-site scans (e.g. jasoseol); scan
 | `src/toast.js` | The shared `#trackerToast` helper. |
 | `api/config.js` | Vercel function `GET /api/config`. Exposes `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `USER_KEY` from environment variables so no config file is committed. Never returns a service-role key. |
 | `vercel.json` | Rewrites (`/` → `index.html`, `/api/config`), clean URLs, and security headers (`nosniff`, `SAMEORIGIN`, XSS protection). |
+| `upsert_jobs.js` | Standalone Node script: pushes `data/jobs.json` into Supabase `jobs` + `job_strategies` (camelCase → snake_case, PostgREST `Prefer: resolution=merge-duplicates`, chunks of 100, `jobs` before `job_strategies` for the FK). Needs `SUPABASE_SERVICE_ROLE_KEY` — the anon key is read-only on these tables under RLS — and exits non-zero rather than silently skipping when it is absent. `--dry-run` and `--since=N`. |
 | `get_open_jobs.js` | One-off Node script: fetches `jobs` + `job_strategies`, keeps postings open as of a hardcoded date (or 상시채용), sorts by deadline, writes `open_jobs.json`. |
 | `open_jobs.json` | Generated snapshot of open jobs with their strategies. |
 | `kanban-layout.test.cjs` | Playwright test (`npm test`): serves the directory offline, asserts the board renders as five equal-height scrollable columns with no page overflow at 375 / 768 / 1366 / 1920px, then exercises the drawer, stage advance, drag/drop and removal. |
