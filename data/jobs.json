@@ -8887,25 +8887,6 @@
     }
   },
   {
-    "id": 399,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "에이피알",
-    "role": "하반기 신입/경력 채용",
-    "type": "정규직",
-    "dueRaw": "2026-09-20",
-    "due": "2026-09-20",
-    "url": "https://jasoseol.com/recruit/105948",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 강남, 커머스 백엔드",
-      "corePitch": "그룹 공채 공고 — 서울 강남, 커머스 백엔드 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
     "id": 400,
     "issue": "2026-09-3주차",
     "cat": "개발∙데이터",
@@ -8925,25 +8906,6 @@
     }
   },
   {
-    "id": 401,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "현대그룹",
-    "role": "2026 하반기 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-22",
-    "due": "2026-09-22",
-    "url": "https://jasoseol.com/recruit/105923",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 본사",
-      "corePitch": "그룹 공채 공고 — 서울 본사 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
     "id": 402,
     "issue": "2026-09-3주차",
     "cat": "개발∙데이터",
@@ -8958,25 +8920,6 @@
       "fit": "B",
       "stackMatch": "서울/의왕, 금융 SI. Java·Spring 중심",
       "corePitch": "그룹 공채 공고 — 서울/의왕, 금융 SI. Java·Spring 중심 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
-    "id": 403,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "NHN",
-    "role": "2026 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-27",
-    "due": "2026-09-27",
-    "url": "https://jasoseol.com/recruit/106285",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "판교, 서버개발 직군. 적합도 최상위",
-      "corePitch": "그룹 공채 공고 — 판교, 서버개발 직군. 적합도 최상위 · 출처: 자소설닷컴",
       "appealProjects": [],
       "interviewPrep": ""
     }
@@ -9110,120 +9053,6 @@
       "fit": "B",
       "stackMatch": "서울 강서, 전산직. NCS 필기 전형",
       "corePitch": "그룹 공채 공고 — 서울 강서, 전산직. NCS 필기 전형 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
-    "id": 411,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "CJ올리브네트웍스",
-    "role": "2026 하반기 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-30",
-    "due": "2026-09-30",
-    "url": "https://jasoseol.com/recruit/106244",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 중구, IT서비스·SI. Java/Spring 적합",
-      "corePitch": "그룹 공채 공고 — 서울 중구, IT서비스·SI. Java/Spring 적합 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
-    "id": 412,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "CJ제일제당",
-    "role": "2026 하반기 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-30",
-    "due": "2026-09-30",
-    "url": "https://jasoseol.com/recruit/106249",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 중구, DT 직무",
-      "corePitch": "그룹 공채 공고 — 서울 중구, DT 직무 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
-    "id": 413,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "CJ대한통운",
-    "role": "2026 하반기 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-30",
-    "due": "2026-09-30",
-    "url": "https://jasoseol.com/recruit/106257",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 중구, 물류 IT",
-      "corePitch": "그룹 공채 공고 — 서울 중구, 물류 IT · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
-    "id": 414,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "CJ올리브영",
-    "role": "2026 하반기 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-30",
-    "due": "2026-09-30",
-    "url": "https://jasoseol.com/recruit/106254",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 용산, 커머스 백엔드",
-      "corePitch": "그룹 공채 공고 — 서울 용산, 커머스 백엔드 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
-    "id": 415,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "CJ ENM(커머스)",
-    "role": "2026 하반기 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-30",
-    "due": "2026-09-30",
-    "url": "https://jasoseol.com/recruit/106252",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 마포/경기 파주",
-      "corePitch": "그룹 공채 공고 — 서울 마포/경기 파주 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
-    }
-  },
-  {
-    "id": 416,
-    "issue": "2026-09-3주차",
-    "cat": "개발∙데이터",
-    "org": "대기업",
-    "company": "CJ ENM(엔터테인먼트)",
-    "role": "2026 하반기 신입 공채",
-    "type": "정규직",
-    "dueRaw": "2026-09-30",
-    "due": "2026-09-30",
-    "url": "https://jasoseol.com/recruit/106253",
-    "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 마포",
-      "corePitch": "그룹 공채 공고 — 서울 마포 · 출처: 자소설닷컴",
       "appealProjects": [],
       "interviewPrep": ""
     }
