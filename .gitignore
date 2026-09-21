@@ -20,3 +20,6 @@ Thumbs.db
 
 # Test artifacts
 kanban-layout-preview.png
+
+# Source scans (the offline data pipeline lives outside this repo)
+xlsx/
