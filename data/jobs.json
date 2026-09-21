@@ -4253,7 +4253,7 @@
     "company": "롯데그룹",
     "role": "하반기 신입 공채 IT",
     "type": "정규직",
-    "dueRaw": "2026-09-21",
+    "dueRaw": "2026-09-21 18:00",
     "due": "2026-09-21",
     "url": "https://jasoseol.com/recruit/105862",
     "strategy": {
@@ -4275,7 +4275,7 @@
     "company": "한화시스템",
     "role": "신입 공채 ICT",
     "type": "정규직",
-    "dueRaw": "2026-09-21",
+    "dueRaw": "2026-09-21 13:00",
     "due": "2026-09-21",
     "url": "https://jasoseol.com/recruit/106064",
     "strategy": {
@@ -5356,7 +5356,7 @@
     "company": "코스콤",
     "role": "IT / SOR-API 개발 / 데이터센터 설계·구축·운영",
     "type": "정규직",
-    "dueRaw": "2026-09-21",
+    "dueRaw": "2026-09-21 17:00",
     "due": "2026-09-21",
     "url": "https://jasoseol.com/recruit/106059",
     "strategy": {
@@ -5379,7 +5379,7 @@
     "company": "두산그룹",
     "role": "디지털이노베이션BU_AI 솔루션 개발",
     "type": "정규직",
-    "dueRaw": "2026-09-21",
+    "dueRaw": "2026-09-21 18:00",
     "due": "2026-09-21",
     "url": "https://jasoseol.com/recruit/105959",
     "strategy": {
@@ -5402,7 +5402,7 @@
     "company": "현대해상화재보험",
     "role": "IT/정보보호 / 디지털·데이터분석",
     "type": "정규직",
-    "dueRaw": "9월21일(월)",
+    "dueRaw": "2026-09-21 18:00",
     "due": "2026-09-21",
     "url": "https://jasoseol.com/recruit/106033",
     "strategy": {
@@ -5425,7 +5425,7 @@
     "company": "뷰웍스",
     "role": "SW개발 / FIRMWARE 개발",
     "type": "정규직",
-    "dueRaw": "2026-09-21",
+    "dueRaw": "2026-09-21 23:59",
     "due": "2026-09-21",
     "url": "https://jasoseol.com/recruit/105892",
     "strategy": {
@@ -5448,8 +5448,8 @@
     "company": "비아이매트릭스",
     "role": "AI·BI 프로젝트 수행 및 솔루션 연구개발",
     "type": "정규직",
-    "dueRaw": "2026-09-20",
-    "due": "2026-09-20",
+    "dueRaw": "2026-09-24 23:59",
+    "due": "2026-09-24",
     "url": "https://jasoseol.com/recruit/105810",
     "strategy": {
       "fit": "A",
@@ -5517,7 +5517,7 @@
     "company": "에코마케팅",
     "role": "데이터엔지니어 / 클라우드보안",
     "type": "정규직",
-    "dueRaw": "10월19일(월)",
+    "dueRaw": "2026-10-19 18:00",
     "due": "2026-10-19",
     "url": "https://jasoseol.com/recruit/106060",
     "strategy": {
@@ -5586,7 +5586,7 @@
     "company": "매드업",
     "role": "[개발 본부] 주니어 백엔드 개발자",
     "type": "정규직",
-    "dueRaw": "9월30일(수)",
+    "dueRaw": "2026-09-30",
     "due": "2026-09-30",
     "url": "https://www.wanted.co.kr/wd/222550",
     "strategy": {
@@ -5609,8 +5609,8 @@
     "company": "버즈빌",
     "role": "[광고 운영 시스템] 백엔드 개발자",
     "type": "정규직",
-    "dueRaw": "9월30일(수)",
-    "due": "2026-09-30",
+    "dueRaw": "2026-11-30",
+    "due": "2026-11-30",
     "url": "https://www.wanted.co.kr/wd/380956",
     "strategy": {
       "fit": "A",
@@ -5861,7 +5861,7 @@
     "company": "제네시스네스트",
     "role": "Java 백엔드 개발자 (1년~8년)",
     "type": "정규직",
-    "dueRaw": "9월30일(수)",
+    "dueRaw": "2026-09-30",
     "due": "2026-09-30",
     "url": "https://www.wanted.co.kr/wd/383780",
     "strategy": {
@@ -6366,8 +6366,8 @@
     "company": "아모레퍼시픽",
     "role": "시스템엔지니어링 (인프라 및 시스템 운영)",
     "type": "정규직",
-    "dueRaw": "2026-09-20 (기존값·직무별 마감 확인 필요)",
-    "due": "2026-09-20",
+    "dueRaw": "2026-09-30 23:59",
+    "due": "2026-09-30",
     "url": "https://jasoseol.com/recruit/106133",
     "strategy": {
       "fit": "B",
@@ -6457,7 +6457,7 @@
     "company": "엑시나",
     "role": "Software Engineer (Data Analytics Engine / Vector Search / KVCache Infra)",
     "type": "정규직",
-    "dueRaw": "11월2일(월)",
+    "dueRaw": "2026-11-02 23:59",
     "due": "2026-11-02",
     "url": "https://jasoseol.com/recruit/106038",
     "strategy": {
@@ -6480,7 +6480,7 @@
     "company": "LIG D&A",
     "role": "AI/SW/사이버보안 신입 채용 (SW 응용·공통기반·AI 등)",
     "type": "정규직",
-    "dueRaw": "11월29일(일)",
+    "dueRaw": "2026-11-29",
     "due": "2026-11-29",
     "url": "https://jasoseol.com/recruit/105604",
     "strategy": {
@@ -7785,7 +7785,7 @@
     "company": "김앤장 법률사무소",
     "role": "IT 부문(개발/IT 운영/정보보안)",
     "type": "정규직",
-    "dueRaw": "2026-10-01",
+    "dueRaw": "2026-10-01 23:59",
     "due": "2026-10-01",
     "url": "https://jasoseol.com/recruit/106165",
     "strategy": {
@@ -8182,7 +8182,7 @@
     "company": "CJ올리브네트웍스",
     "role": "2026 하반기 신입 SW Engineer·AI/Data/DX",
     "type": "정규직",
-    "dueRaw": "2026-09-30 17:00",
+    "dueRaw": "2026-09-30",
     "due": "2026-09-30",
     "url": "https://linkareer.com/activity/351094",
     "strategy": {
@@ -8341,7 +8341,7 @@
     "company": "한국투자증권",
     "role": "FY2026 신입 5급 IT/Digital 개발·운영",
     "type": "정규직",
-    "dueRaw": "2026-10-19",
+    "dueRaw": "2026-10-19 17:00",
     "due": "2026-10-19",
     "url": "https://linkareer.com/activity/350972",
     "strategy": {
@@ -8387,7 +8387,7 @@
     "company": "NHN",
     "role": "백엔드 개발 인턴 (체험형)",
     "type": "인턴",
-    "dueRaw": "2026-09-27 23:59 (게시 플랫폼 기준)",
+    "dueRaw": "2026-09-27 23:59",
     "due": "2026-09-27",
     "url": "https://zighang.com/recruitment/7937ea9d-4c61-447b-bae2-1858d6e45921",
     "strategy": {
@@ -8932,7 +8932,7 @@
     "company": "큐알티",
     "role": "신입 채용",
     "type": "정규직",
-    "dueRaw": "2026-09-27",
+    "dueRaw": "2026-09-27 23:59",
     "due": "2026-09-27",
     "url": "https://jasoseol.com/recruit/106050",
     "strategy": {
@@ -8989,7 +8989,7 @@
     "company": "대한항공",
     "role": "2026 하반기 신입 공채",
     "type": "정규직",
-    "dueRaw": "2026-09-28",
+    "dueRaw": "2026-09-28 16:00",
     "due": "2026-09-28",
     "url": "https://jasoseol.com/recruit/106220",
     "strategy": {
@@ -9008,7 +9008,7 @@
     "company": "피에스케이",
     "role": "신입 채용",
     "type": "정규직",
-    "dueRaw": "2026-09-28",
+    "dueRaw": "2026-09-28 23:50",
     "due": "2026-09-28",
     "url": "https://jasoseol.com/recruit/106340",
     "strategy": {
@@ -9046,7 +9046,7 @@
     "company": "한국공항공사(KAC)",
     "role": "2026 하반기 신입 채용",
     "type": "정규직",
-    "dueRaw": "2026-09-29",
+    "dueRaw": "2026-09-29 16:00",
     "due": "2026-09-29",
     "url": "https://jasoseol.com/recruit/106206",
     "strategy": {
@@ -9065,7 +9065,7 @@
     "company": "CJ프레시웨이",
     "role": "2026 하반기 신입 공채",
     "type": "정규직",
-    "dueRaw": "2026-09-30",
+    "dueRaw": "2026-09-30 17:00",
     "due": "2026-09-30",
     "url": "https://jasoseol.com/recruit/106256",
     "strategy": {
@@ -9217,7 +9217,7 @@
     "company": "과천도시공사",
     "role": "신입 채용",
     "type": "정규직",
-    "dueRaw": "2026-09-30",
+    "dueRaw": "2026-09-30 18:00",
     "due": "2026-09-30",
     "url": "https://jasoseol.com/recruit/106158",
     "strategy": {
@@ -9236,7 +9236,7 @@
     "company": "금융결제원",
     "role": "2026 하반기 신입 채용",
     "type": "정규직",
-    "dueRaw": "2026-10-02",
+    "dueRaw": "2026-10-02 16:00",
     "due": "2026-10-02",
     "url": "https://jasoseol.com/recruit/106259",
     "strategy": {
@@ -9338,6 +9338,310 @@
       "fit": "B",
       "stackMatch": "웹 풀스택, AI 코딩 도구 활용",
       "corePitch": "서울 서초. 웹 개발 경력 1년 이상 요구 — 0년차는 경계선",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 432,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "KINX",
+    "role": "네트워크 데이터 분석 시스템 개발",
+    "type": "인턴",
+    "dueRaw": "2026-10-05",
+    "due": "2026-10-05",
+    "url": "https://jasoseol.com/recruit/106302",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "서울 금천 가산. 채용 전환형 인턴, IDC/네트워크 도메인",
+      "corePitch": "그룹 공채 공고 — 서울 금천 가산. 채용 전환형 인턴, IDC/네트워크 도메인 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 433,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "공공기관",
+    "company": "인천시설공단",
+    "role": "전산 (일반직 7급)",
+    "type": "정규직",
+    "dueRaw": "2026-10-06 18:00",
+    "due": "2026-10-06",
+    "url": "https://jasoseol.com/recruit/106288",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "인천. 공기업 필기전형, 정보처리기사 가점",
+      "corePitch": "그룹 공채 공고 — 인천. 공기업 필기전형, 정보처리기사 가점 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 434,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "한솔그룹",
+    "role": "[한솔PNS IT] 웹개발자(AI 서비스/응용) / 풀스택 개발자 / [한솔테크닉스] S/W개발",
+    "type": "정규직",
+    "dueRaw": "2026-10-11 23:59",
+    "due": "2026-10-11",
+    "url": "https://jasoseol.com/recruit/106344",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "서울 중구. 2026 신입사원 공개채용. 웹개발 직무 3개 별도 모집",
+      "corePitch": "그룹 공채 공고 — 서울 중구. 2026 신입사원 공개채용. 웹개발 직무 3개 별도 모집 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 435,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "우성그룹",
+    "role": "IT/AX (Full-Stack 개발 엔지니어)",
+    "type": "정규직",
+    "dueRaw": "2026-10-11 23:59",
+    "due": "2026-10-11",
+    "url": "https://jasoseol.com/recruit/106343",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "2026 신입/경력 모집. 근무지 확인 필요",
+      "corePitch": "그룹 공채 공고 — 2026 신입/경력 모집. 근무지 확인 필요 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 436,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "한화비전",
+    "role": "Edge Device SW Engineer / 영상 관제 솔루션 SW 개발",
+    "type": "정규직",
+    "dueRaw": "2026-10-11 23:59",
+    "due": "2026-10-11",
+    "url": "https://jasoseol.com/recruit/105964",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "경기 성남 판교. 테크&라이프 부문 신입 공채. C/C++ 비중 높음",
+      "corePitch": "그룹 공채 공고 — 경기 성남 판교. 테크&라이프 부문 신입 공채. C/C++ 비중 높음 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 437,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "신세계그룹",
+    "role": "[SCK] AI기획/개발, [I&C] SAP 개발/운영 · 서버/네트워크 운영",
+    "type": "정규직",
+    "dueRaw": "2026-10-12 18:00",
+    "due": "2026-10-12",
+    "url": "https://jasoseol.com/recruit/106234",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "서울 중구. 2027년 신입사원 채용",
+      "corePitch": "그룹 공채 공고 — 서울 중구. 2027년 신입사원 채용 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 438,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "LG CNS",
+    "role": "AM INSPIRE CAMP 7기 - Frontend/Backend 엔지니어",
+    "type": "정규직",
+    "dueRaw": "2026-10-12 23:59",
+    "due": "2026-10-12",
+    "url": "https://jasoseol.com/recruit/106104",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "서울 강서 마곡. 교육 후 채용연계. Java/Spring 기반 AM 직무",
+      "corePitch": "그룹 공채 공고 — 서울 강서 마곡. 교육 후 채용연계. Java/Spring 기반 AM 직무 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 439,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "SK플래닛",
+    "role": "(AI캠퍼스) AI 데이터 엔지니어 2기",
+    "type": "정규직",
+    "dueRaw": "2026-10-18 23:59",
+    "due": "2026-10-18",
+    "url": "https://jasoseol.com/recruit/106231",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "경기 성남 판교. 교육형 과정, 채용 연계 여부 확인 필요",
+      "corePitch": "그룹 공채 공고 — 경기 성남 판교. 교육형 과정, 채용 연계 여부 확인 필요 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 440,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "경기테크노파크",
+    "role": "AI/SW 개발 / 데이터분석 인턴십",
+    "type": "인턴",
+    "dueRaw": "2026-11-13 23:59",
+    "due": "2026-11-13",
+    "url": "https://jasoseol.com/recruit/106204",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "경기 안산. 스마트제조 전문인력 육성사업 실무 인턴십",
+      "corePitch": "그룹 공채 공고 — 경기 안산. 스마트제조 전문인력 육성사업 실무 인턴십 · 출처: 자소설닷컴",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 441,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "지로",
+    "role": "백엔드 개발자",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/371583",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "NestJS, TypeScript, AWS, REST API",
+      "corePitch": "AWS·REST 경험은 전이되나 주 스택이 NestJS/TypeScript로 불일치. 프로덕션 운영 경험을 요구함 · 근무지: 서울 강남",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 442,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "브레인크루",
+    "role": "Product Engineer(Full stack)",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/378556",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Python/Java/JavaScript 중 1개, 웹 서비스 설계",
+      "corePitch": "Java가 허용 언어에 포함되고 '서비스 수준 프로젝트 개발 경험'이 요건이라 포트폴리오로 대응 가능. 다만 풀스택 범위 · 근무지: 경기 성남",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 443,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "쿡앱스(CookApps)",
+    "role": "LLM & 백엔드 엔지니어",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/382314",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "LLM 기반 제품 설계, 백엔드",
+      "corePitch": "요구사항이 스택보다 제품 이해 중심이라 문턱이 낮은 편이나, LLM 제품 설계 경험을 전제로 해 신입에게는 불리 · 근무지: 경기 성남",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 444,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "몽구스에이아이",
+    "role": "Full Stack Developer",
+    "type": "정규직",
+    "dueRaw": "2026-09-30",
+    "due": "2026-09-30",
+    "url": "https://www.wanted.co.kr/wd/378371",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "React, Backend API, RDBMS 설계",
+      "corePitch": "'실제 프로젝트 개발 경험'만 요건이라 신입 지원 가능. 다만 React 프론트엔드가 필수라 범위가 넓음 · 근무지: 경기 성남",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 445,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "래블업",
+    "role": "Fullstack Software Engineer (MLOps 플랫폼)",
+    "type": "인턴",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/385292",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "언어·프레임워크 무관, MLOps 도메인",
+      "corePitch": "'인턴십·오픈소스 기여·개인 프로젝트를 통한 그에 준하는 경험'을 인정해 신입 지원 가능. 특정 언어를 요구하지 않는 대신 MLOps 도메인 학습 부담이 큼 · 근무지: 서울 강남",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 446,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "티엔에이치",
+    "role": "백엔드 개발자 (신입)",
+    "type": "정규직",
+    "dueRaw": "2026-10-19",
+    "due": "2026-10-19",
+    "url": "https://jumpit.saramin.co.kr/position/55075779",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Node.js, TypeScript, PostgreSQL, Docker, Git, Amazon EMR",
+      "corePitch": "신입 전용 공고이고 Docker·SQL 경험이 전이되나, 주 스택이 Node.js/TypeScript/PostgreSQL이라 Java/Spring 역량이 직접 쓰이지 않음 · 근무지: 경기 성남 분당",
+      "appealProjects": [],
+      "interviewPrep": ""
+    }
+  },
+  {
+    "id": 447,
+    "issue": "2026-09-3주차",
+    "cat": "개발∙데이터",
+    "org": "중견기업",
+    "company": "휴라이트",
+    "role": "풀스택 앱 개발자",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/339685",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "React Native, Flutter, Node.js, Python, IoT 연동",
+      "corePitch": "경기 광명. IoT 솔루션. 요구 스택 전면 불일치",
       "appealProjects": [],
       "interviewPrep": ""
     }
