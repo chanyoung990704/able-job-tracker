@@ -9346,19 +9346,19 @@
     "id": 432,
     "issue": "2026-09-3주차",
     "cat": "개발∙데이터",
-    "org": "대기업",
+    "org": "중견기업",
     "company": "KINX",
-    "role": "네트워크 데이터 분석 시스템 개발",
-    "type": "인턴",
+    "role": "네트워크 데이터 분석 시스템 개발 (채용전환형 인턴)",
+    "type": "채용연계형 인턴",
     "dueRaw": "2026-10-05",
     "due": "2026-10-05",
     "url": "https://jasoseol.com/recruit/106302",
     "strategy": {
       "fit": "B",
-      "stackMatch": "서울 금천 가산. 채용 전환형 인턴, IDC/네트워크 도메인",
-      "corePitch": "그룹 공채 공고 — 서울 금천 가산. 채용 전환형 인턴, IDC/네트워크 도메인 · 출처: 자소설닷컴",
+      "stackMatch": "네트워크/IDC 도메인 · 데이터 분석 시스템 · 상세 스택 미공개",
+      "corePitch": "원문 확인: 개발 직무는 인턴 3개 중 1개뿐이고 나머지는 영업·사업관리다. 기업형태 중견기업(사원 180명), 경기 과천 근무. 채용전환형이라 정규직 전환이 전제되지 않으며, Java/Spring 요구는 공고에 명시돼 있지 않다.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "IDC·네트워크 도메인 이해도와 데이터 파이프라인 설계 경험 위주로 준비. 전환 조건과 평가 기준을 먼저 확인할 것."
     }
   },
   {
@@ -9374,10 +9374,10 @@
     "url": "https://jasoseol.com/recruit/106288",
     "strategy": {
       "fit": "B",
-      "stackMatch": "인천. 공기업 필기전형, 정보처리기사 가점",
-      "corePitch": "그룹 공채 공고 — 인천. 공기업 필기전형, 정보처리기사 가점 · 출처: 자소설닷컴",
+      "stackMatch": "공기업 필기전형 · 전산직 · 정보처리기사 가점 · 상세 스택 미공개",
+      "corePitch": "원문 확인: 15개 직군 공개채용 중 전산 1개 직군. 접수 9/29 09:00~10/6 18:00로 접수 시작 전이다. 인천 근무로 수도권. 필기전형 중심이라 포트폴리오보다 전공 필기 준비 비중이 크고, Spring 실무 역량이 평가에 직접 반영되지 않는다.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "전산직 필기(전산학개론·데이터베이스·네트워크) 및 정보처리기사 가점 요건 확인."
     }
   },
   {
@@ -9386,36 +9386,39 @@
     "cat": "개발∙데이터",
     "org": "대기업",
     "company": "한솔그룹",
-    "role": "[한솔PNS IT] 웹개발자(AI 서비스/응용) / 풀스택 개발자 / [한솔테크닉스] S/W개발",
+    "role": "[한솔PNS IT] 웹개발자(AI 서비스/응용) · 풀스택 개발자",
     "type": "정규직",
     "dueRaw": "2026-10-11 23:59",
     "due": "2026-10-11",
     "url": "https://jasoseol.com/recruit/106344",
     "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 중구. 2026 신입사원 공개채용. 웹개발 직무 3개 별도 모집",
-      "corePitch": "그룹 공채 공고 — 서울 중구. 2026 신입사원 공개채용. 웹개발 직무 3개 별도 모집 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
+      "fit": "A",
+      "stackMatch": "웹 개발(AI 서비스/응용) · 풀스택 · 계열 SI · 상세 스택 미공개",
+      "corePitch": "원문 확인: 18개 직무 중 IT 직무가 5개([한솔PNS IT] 웹개발자 2종·풀스택·SAP SD, [한솔테크닉스] S/W개발)로 백엔드 지원 경로가 실제로 열려 있다. 서울 중구 근무. 다만 요구 스택이 공고에 공개돼 있지 않아 Java/Spring 정합성은 확인되지 않았다.",
+      "appealProjects": [
+        "Spring 성능 개선: 100만 건 인덱스 튜닝(6.2s→0.45s) 및 QueryDSL DTO Projection으로 N+1 제거",
+        "SENTINEL: 18개 모듈·95개 API 총괄, Kafka 202 Accepted + 상태 폴링으로 외부 AI 지연(80초) 시 WAS 스레드 고갈 방어"
+      ],
+      "interviewPrep": "웹개발자(AI 서비스)와 풀스택 중 어느 쪽이 서버 중심인지 채용 담당에 확인. AI 서비스 연동 경험은 SENTINEL의 외부 AI 비동기 처리로 연결."
     }
   },
   {
     "id": 435,
     "issue": "2026-09-3주차",
     "cat": "개발∙데이터",
-    "org": "대기업",
+    "org": "중견기업",
     "company": "우성그룹",
-    "role": "IT/AX (Full-Stack 개발 엔지니어)",
+    "role": "[우성] IT/AX (신입)",
     "type": "정규직",
     "dueRaw": "2026-10-11 23:59",
     "due": "2026-10-11",
     "url": "https://jasoseol.com/recruit/106343",
     "strategy": {
       "fit": "B",
-      "stackMatch": "2026 신입/경력 모집. 근무지 확인 필요",
-      "corePitch": "그룹 공채 공고 — 2026 신입/경력 모집. 근무지 확인 필요 · 출처: 자소설닷컴",
+      "stackMatch": "IT/AX 직무 · 상세 스택 미공개",
+      "corePitch": "원문 확인 — 레코드 수정: 엑셀에 적힌 \"IT/AX(Full-Stack 개발 엔지니어)\"는 경력 모집이고, 신입 대상은 \"[우성] IT/AX\"다. 신입 직무 설명에 개발 스택이 없어 백엔드 직무인지 자체가 불확실하다. 근무지도 공고에 명시되지 않았다.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "신입 IT/AX가 개발 직무인지 사내 IT 운영인지 먼저 확인. 근무지(수도권 여부) 확인 필수."
     }
   },
   {
@@ -9431,10 +9434,10 @@
     "url": "https://jasoseol.com/recruit/105964",
     "strategy": {
       "fit": "B",
-      "stackMatch": "경기 성남 판교. 테크&라이프 부문 신입 공채. C/C++ 비중 높음",
-      "corePitch": "그룹 공채 공고 — 경기 성남 판교. 테크&라이프 부문 신입 공채. C/C++ 비중 높음 · 출처: 자소설닷컴",
+      "stackMatch": "임베디드 Edge Device SW · 영상 관제 솔루션 · C/C++ 계열 추정",
+      "corePitch": "원문 확인: 신입 직무가 카메라 회로설계·Edge Device SW·영상 관제 솔루션 SW 3개뿐으로, 모두 임베디드/영상 도메인이다. 웹 백엔드 포지션이 없어 Java/Spring·JPA·Kafka 경험이 직접 쓰이지 않는다. 대기업(사원 941명), 경기 성남 분당 판교.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "지원한다면 CS 기초와 C/C++ 역량 중심. 현 포트폴리오와는 접점이 얕다."
     }
   },
   {
@@ -9443,17 +9446,20 @@
     "cat": "개발∙데이터",
     "org": "대기업",
     "company": "신세계그룹",
-    "role": "[SCK] AI기획/개발, [I&C] SAP 개발/운영 · 서버/네트워크 운영",
+    "role": "[I&C] 프로그래머 / SAP 개발·운영 / 서버·네트워크 운영, [SCK] AI기획·개발",
     "type": "정규직",
     "dueRaw": "2026-10-12 18:00",
     "due": "2026-10-12",
     "url": "https://jasoseol.com/recruit/106234",
     "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 중구. 2027년 신입사원 채용",
-      "corePitch": "그룹 공채 공고 — 서울 중구. 2027년 신입사원 채용 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
+      "fit": "A",
+      "stackMatch": "신세계I&C SI 개발 · SAP · 클라우드 · 정보보안 · 상세 스택 미공개",
+      "corePitch": "원문 확인: 28개 직무 중 신세계I&C에 프로그래머·SAP 개발/운영·클라우드·서버/네트워크 운영이 별도로 열려 있어 개발 지원 경로가 명확하다. 서울 중구 근무. \"[I&C] 프로그래머\"가 백엔드에 가장 가깝지만 요구 스택은 공개돼 있지 않다.",
+      "appealProjects": [
+        "Spring 성능 개선: 100만 건 인덱스 튜닝(6.2s→0.45s) 및 QueryDSL DTO Projection으로 N+1 제거",
+        "SENTINEL: 18개 모듈·95개 API 총괄, Kafka 202 Accepted + 상태 폴링으로 외부 AI 지연(80초) 시 WAS 스레드 고갈 방어"
+      ],
+      "interviewPrep": "그룹 SI 특성상 안정성·트랜잭션 무결성 논거 준비. 계열사 상주 여부와 프로그래머 직무의 주력 언어 확인."
     }
   },
   {
@@ -9462,17 +9468,20 @@
     "cat": "개발∙데이터",
     "org": "대기업",
     "company": "LG CNS",
-    "role": "AM INSPIRE CAMP 7기 - Frontend/Backend 엔지니어",
-    "type": "정규직",
+    "role": "AM INSPIRE CAMP 7기 - Frontend/Backend 엔지니어 (교육형)",
+    "type": "채용연계형 인턴",
     "dueRaw": "2026-10-12 23:59",
     "due": "2026-10-12",
     "url": "https://jasoseol.com/recruit/106104",
     "strategy": {
-      "fit": "B",
-      "stackMatch": "서울 강서 마곡. 교육 후 채용연계. Java/Spring 기반 AM 직무",
-      "corePitch": "그룹 공채 공고 — 서울 강서 마곡. 교육 후 채용연계. Java/Spring 기반 AM 직무 · 출처: 자소설닷컴",
-      "appealProjects": [],
-      "interviewPrep": ""
+      "fit": "A",
+      "stackMatch": "Backend 엔지니어 교육 과정 · 요구 스택 공고 미명시",
+      "corePitch": "원문 확인 — 이전 기록 정정: 공고에는 \"Java/Spring 기반 AM 직무\"라는 문구가 없다. 5개 교육 과정(Frontend/Backend·AI·AI기획·클라우드·DevOps) 중 Backend 트랙이 있을 뿐이며, 전형 구분이 \"교육\"이라 정규직 직접 채용이 아니라 교육 후 채용연계다. 대기업(사원 6,953명), 서울 강서 마곡.",
+      "appealProjects": [
+        "Spring 성능 개선: 100만 건 인덱스 튜닝(6.2s→0.45s) 및 QueryDSL DTO Projection으로 N+1 제거",
+        "KT AIVLE School 빅프로젝트 우수상 · Dean’s List 수료"
+      ],
+      "interviewPrep": "교육 수료 후 채용 전환율과 전환 시 직무 배치 기준을 먼저 확인. AIVLE School 수료 이력이 교육형 전형과 잘 맞는다."
     }
   },
   {
@@ -9481,36 +9490,36 @@
     "cat": "개발∙데이터",
     "org": "대기업",
     "company": "SK플래닛",
-    "role": "(AI캠퍼스) AI 데이터 엔지니어 2기",
-    "type": "정규직",
+    "role": "(AI캠퍼스) AI 데이터 엔지니어 2기 (교육형)",
+    "type": "채용연계형 인턴",
     "dueRaw": "2026-10-18 23:59",
     "due": "2026-10-18",
     "url": "https://jasoseol.com/recruit/106231",
     "strategy": {
       "fit": "B",
-      "stackMatch": "경기 성남 판교. 교육형 과정, 채용 연계 여부 확인 필요",
-      "corePitch": "그룹 공채 공고 — 경기 성남 판교. 교육형 과정, 채용 연계 여부 확인 필요 · 출처: 자소설닷컴",
+      "stackMatch": "AI 데이터 엔지니어링 교육 · 요구 스택 공고 미명시",
+      "corePitch": "원문 확인: 모집 직무가 \"AI 데이터 엔지니어\" 교육 과정 단 1개이고 전형 구분이 교육이다. 백엔드 개발이 아니라 데이터 엔지니어링 트랙이라 Spring 역량의 직접 접점이 얕다. 대기업, 경기 성남 판교. 채용 연계 여부는 공고에 명시돼 있지 않다.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "채용 연계 조건을 먼저 확인. 지원한다면 Spring Batch 대용량 전처리 경험을 데이터 파이프라인 역량으로 연결."
     }
   },
   {
     "id": 440,
     "issue": "2026-09-3주차",
     "cat": "개발∙데이터",
-    "org": "대기업",
+    "org": "공공기관",
     "company": "경기테크노파크",
-    "role": "AI/SW 개발 / 데이터분석 인턴십",
+    "role": "AI/SW 개발 인턴십",
     "type": "인턴",
     "dueRaw": "2026-11-13 23:59",
     "due": "2026-11-13",
     "url": "https://jasoseol.com/recruit/106204",
     "strategy": {
       "fit": "B",
-      "stackMatch": "경기 안산. 스마트제조 전문인력 육성사업 실무 인턴십",
-      "corePitch": "그룹 공채 공고 — 경기 안산. 스마트제조 전문인력 육성사업 실무 인턴십 · 출처: 자소설닷컴",
+      "stackMatch": "스마트제조 인력양성 인턴십 · 상세 스택 미공개",
+      "corePitch": "원문 확인: 7개 인턴 직무 중 AI/SW 개발·데이터분석·솔루션구축이 개발 계열. 공공기관(사원 75명), 경기 안산 근무로 수도권이지만 통근 거리 확인이 필요하다. 인턴십 사업이라 정규직 전환이 전제되지 않는다.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "사업 기간과 전환 조건 확인이 우선."
     }
   },
   {
@@ -9526,10 +9535,10 @@
     "url": "https://www.wanted.co.kr/wd/371583",
     "strategy": {
       "fit": "B",
-      "stackMatch": "NestJS, TypeScript, AWS, REST API",
-      "corePitch": "AWS·REST 경험은 전이되나 주 스택이 NestJS/TypeScript로 불일치. 프로덕션 운영 경험을 요구함 · 근무지: 서울 강남",
+      "stackMatch": "NestJS · TypeScript · AWS · PostgreSQL · RESTful API",
+      "corePitch": "원문 확인 — 신입 부적합: 자격요건 첫 줄이 \"NestJS + TypeScript로 실서비스(프로덕션) 도메인 API를 개발·운영해 본 분\"으로 운영 경험을 요구한다. 스택도 Node 계열이라 Java/Spring이 직접 쓰이지 않는다. 다만 PostgreSQL 인덱스·성능 최적화 요건은 보유한 쿼리 튜닝 경험과 맞닿는다. 서울 강남.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "지원한다면 성능 최적화 경험만으로는 부족. NestJS 실서비스 경험 요건을 어떻게 대체할지 먼저 판단."
     }
   },
   {
@@ -9538,17 +9547,21 @@
     "cat": "개발∙데이터",
     "org": "스타트업",
     "company": "브레인크루",
-    "role": "Product Engineer(Full stack)",
+    "role": "Product Engineer (Full stack)",
     "type": "정규직",
     "dueRaw": "상시채용",
     "due": null,
     "url": "https://www.wanted.co.kr/wd/378556",
     "strategy": {
-      "fit": "B",
-      "stackMatch": "Python/Java/JavaScript 중 1개, 웹 서비스 설계",
-      "corePitch": "Java가 허용 언어에 포함되고 '서비스 수준 프로젝트 개발 경험'이 요건이라 포트폴리오로 대응 가능. 다만 풀스택 범위 · 근무지: 경기 성남",
-      "appealProjects": [],
-      "interviewPrep": ""
+      "fit": "A",
+      "stackMatch": "Python / Java / JavaScript 중 1개 · 웹 서비스 설계·구현 · Azure/AWS · 모니터링·로깅·배포 자동화",
+      "corePitch": "원문 확인 — 신규 16건 중 Java 경로가 가장 확실: 자격요건이 \"Python, Java, JavaScript 등 하나 이상의 언어로 서비스 수준의 프로젝트를 개발·운영해본 경험\"이라 Java로 충족 가능하고, 연차 하한이 없다. \"서비스 수준\"과 \"기술적 의사결정을 문서로 정리·공유\"는 SENTINEL 규모와 성능 개선 기록으로 직접 대응된다. 경기 성남 분당. 다만 풀스택 범위이고 인프라(Azure/AWS)·배포 자동화 비중이 있다.",
+      "appealProjects": [
+        "SENTINEL: 18개 모듈·95개 API 총괄, Kafka 202 Accepted + 상태 폴링으로 외부 AI 지연(80초) 시 WAS 스레드 고갈 방어",
+        "Spring 성능 개선: 100만 건 인덱스 튜닝(6.2s→0.45s) 및 QueryDSL DTO Projection으로 N+1 제거",
+        "Spring Batch 기반 대용량 전처리 및 AWS(EC2·S3·CodeDeploy) 파이프라인 운영"
+      ],
+      "interviewPrep": "\"서비스 수준 프로젝트\"의 정의에 맞춰 SENTINEL의 모듈·API 규모와 운영 경험을 수치로 제시. Azure 경험 공백은 AWS 파이프라인 운영 경험으로 치환해 설명."
     }
   },
   {
@@ -9564,10 +9577,10 @@
     "url": "https://www.wanted.co.kr/wd/382314",
     "strategy": {
       "fit": "B",
-      "stackMatch": "LLM 기반 제품 설계, 백엔드",
-      "corePitch": "요구사항이 스택보다 제품 이해 중심이라 문턱이 낮은 편이나, LLM 제품 설계 경험을 전제로 해 신입에게는 불리 · 근무지: 경기 성남",
+      "stackMatch": "LLM/LM 기반 제품 설계 · 백엔드 · 구체 스택 공고 미명시",
+      "corePitch": "원문 확인: 자격요건이 \"LLM/LM 기반 제품 설계 및 기능의 제한과 특징을 설명할 수 있는 분\", \"재미가 무언지 공감 가능하신 분\"으로 서술돼 있고 언어·프레임워크 요건이 없다. 게임/세계관 도메인 색채가 강해 백엔드 엔지니어링보다 제품 감각을 본다. 경기 성남 판교.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "SENTINEL의 외부 AI 연동·비동기 파이프라인 경험을 LLM 제품 맥락으로 재구성할 수 있는지가 관건."
     }
   },
   {
@@ -9583,10 +9596,12 @@
     "url": "https://www.wanted.co.kr/wd/378371",
     "strategy": {
       "fit": "B",
-      "stackMatch": "React, Backend API, RDBMS 설계",
-      "corePitch": "'실제 프로젝트 개발 경험'만 요건이라 신입 지원 가능. 다만 React 프론트엔드가 필수라 범위가 넓음 · 근무지: 경기 성남",
-      "appealProjects": [],
-      "interviewPrep": ""
+      "stackMatch": "React · Backend API · RDBMS 모델링/스키마 설계 · 제품 전 주기",
+      "corePitch": "원문 확인: \"학벌이나 성별, 경력은 중요하지 않습니다\"로 신입 문호가 열려 있고 RDBMS 모델링·스키마 설계가 명시돼 있어 DB 설계 경험이 쓰인다. 다만 React 프론트엔드가 업무의 절반이라 백엔드 전업과는 거리가 있고, 요구 백엔드 스택이 특정되지 않았다.",
+      "appealProjects": [
+        "Spring 성능 개선: 100만 건 인덱스 튜닝(6.2s→0.45s) 및 QueryDSL DTO Projection으로 N+1 제거"
+      ],
+      "interviewPrep": "프론트엔드 비중을 먼저 확인. RDBMS 모델링은 인덱스 튜닝·정규화 의사결정 근거로 대응."
     }
   },
   {
@@ -9596,16 +9611,19 @@
     "org": "스타트업",
     "company": "래블업",
     "role": "Fullstack Software Engineer (MLOps 플랫폼)",
-    "type": "인턴",
+    "type": "정규직",
     "dueRaw": "상시채용",
     "due": null,
     "url": "https://www.wanted.co.kr/wd/385292",
     "strategy": {
-      "fit": "B",
-      "stackMatch": "언어·프레임워크 무관, MLOps 도메인",
-      "corePitch": "'인턴십·오픈소스 기여·개인 프로젝트를 통한 그에 준하는 경험'을 인정해 신입 지원 가능. 특정 언어를 요구하지 않는 대신 MLOps 도메인 학습 부담이 큼 · 근무지: 서울 강남",
-      "appealProjects": [],
-      "interviewPrep": ""
+      "fit": "A",
+      "stackMatch": "언어·프레임워크 무관 · MLOps 도메인 · 영어 기술문서 및 회화 필수",
+      "corePitch": "원문 확인 — 신입 진입 문턱이 명시적으로 낮음: \"실무 1년 이상 또는 인턴십·오픈소스 기여·개인 프로젝트를 통한 그에 준하는 경험\"으로 개인 프로젝트를 정식 인정하고, \"특정 언어나 프레임워크 경험은 무관\"이라고 못 박았다. 대신 영어 기술 의사소통(독해+회화)이 필수 요건이라 여기가 실질 관문이다. 서울 강남.",
+      "appealProjects": [
+        "SENTINEL: 18개 모듈·95개 API 총괄, Kafka 202 Accepted + 상태 폴링으로 외부 AI 지연(80초) 시 WAS 스레드 고갈 방어",
+        "Spring Batch 기반 대용량 전처리 및 AWS(EC2·S3·CodeDeploy) 파이프라인 운영"
+      ],
+      "interviewPrep": "영어 회화 요건이 사실상의 컷. 코드 정확성 판단 역량을 강조하되 MLOps 도메인 학습 의지를 함께 제시."
     }
   },
   {
@@ -9621,17 +9639,17 @@
     "url": "https://jumpit.saramin.co.kr/position/55075779",
     "strategy": {
       "fit": "B",
-      "stackMatch": "Node.js, TypeScript, PostgreSQL, Docker, Git, Amazon EMR",
-      "corePitch": "신입 전용 공고이고 Docker·SQL 경험이 전이되나, 주 스택이 Node.js/TypeScript/PostgreSQL이라 Java/Spring 역량이 직접 쓰이지 않음 · 근무지: 경기 성남 분당",
+      "stackMatch": "Node.js · JavaScript/TypeScript · RDBMS/SQL · CS 기초 · Git/JIRA · (우대) Docker, Kubernetes",
+      "corePitch": "원문 확인: 경력란이 \"신입\", 마감 2026-10-19로 신입 전용 정규직이 맞다. 그러나 기술 스택이 Node.js 서버 애플리케이션으로 명시돼 Java/Spring 역량이 직접 쓰이지 않는다. RDBMS/SQL·CS 기초·단위 테스트·Docker 우대는 전이 가능한 부분. 경기 성남 분당, 학력 4년제 이상.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "Node 전환 의지를 설득할 수 있는지가 관건. SQL 튜닝과 테스트 작성 경험을 언어 독립적 강점으로 제시."
     }
   },
   {
     "id": 447,
     "issue": "2026-09-3주차",
     "cat": "개발∙데이터",
-    "org": "중견기업",
+    "org": "스타트업",
     "company": "휴라이트",
     "role": "풀스택 앱 개발자",
     "type": "정규직",
@@ -9640,10 +9658,10 @@
     "url": "https://www.wanted.co.kr/wd/339685",
     "strategy": {
       "fit": "B",
-      "stackMatch": "React Native, Flutter, Node.js, Python, IoT 연동",
-      "corePitch": "경기 광명. IoT 솔루션. 요구 스택 전면 불일치",
+      "stackMatch": "JavaScript · React Native · Flutter · Node.js · Python · IoT 기기 연동 · 실시간 데이터 처리",
+      "corePitch": "원문 확인: 요구 스택이 모바일 앱(React Native/Flutter)과 Node/Python 중심이고 IoT 기기 연동·UI/UX 구현 능력을 요구한다. Java/Spring 백엔드와 접점이 거의 없다. 경기 광명 근무.",
       "appealProjects": [],
-      "interviewPrep": ""
+      "interviewPrep": "현 포트폴리오와 방향이 다르다. 실시간 데이터 처리 경험만 부분적으로 연결 가능."
     }
   }
 ]
