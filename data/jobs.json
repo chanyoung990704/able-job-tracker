@@ -4411,8 +4411,8 @@
     "company": "드림어스컴퍼니",
     "role": "콘텐츠 플랫폼 백엔드 개발(신입) · Java/Spring/Kafka",
     "type": "정규직",
-    "dueRaw": "2026-09-22",
-    "due": "2026-09-22",
+    "dueRaw": "2026-10-22",
+    "due": "2026-10-22",
     "url": "https://www.wanted.co.kr/wd/373760",
     "strategy": {
       "fit": "S",
@@ -4812,8 +4812,8 @@
     "company": "에스피코리아",
     "role": "백엔드 개발자(1~3년) · Java/Kotlin/MySQL",
     "type": "정규직",
-    "dueRaw": "9월23일(수)",
-    "due": "2026-09-23",
+    "dueRaw": "2026-10-23",
+    "due": "2026-10-23",
     "url": "https://jumpit.saramin.co.kr/position/54822617",
     "strategy": {
       "fit": "A",
@@ -7001,8 +7001,8 @@
     "company": "드림어스컴퍼니",
     "role": "콘텐츠 플랫폼 백엔드 개발(신입)",
     "type": "정규직",
-    "dueRaw": "2026-09-22 23:59",
-    "due": "2026-09-22",
+    "dueRaw": "2026-10-22",
+    "due": "2026-10-22",
     "url": "https://jumpit.saramin.co.kr/position/54827315",
     "strategy": {
       "fit": "S",
@@ -8182,7 +8182,7 @@
     "company": "CJ올리브네트웍스",
     "role": "2026 하반기 신입 SW Engineer·AI/Data/DX",
     "type": "정규직",
-    "dueRaw": "2026-09-30",
+    "dueRaw": "2026-09-30 17:00",
     "due": "2026-09-30",
     "url": "https://linkareer.com/activity/351094",
     "strategy": {
@@ -8951,7 +8951,7 @@
     "company": "NH투자증권",
     "role": "2026 하반기 신입 공채",
     "type": "정규직",
-    "dueRaw": "2026-09-28",
+    "dueRaw": "2026-09-28 17:00",
     "due": "2026-09-28",
     "url": "https://jasoseol.com/recruit/106342",
     "strategy": {
@@ -9662,6 +9662,392 @@
       "corePitch": "원문 확인: 요구 스택이 모바일 앱(React Native/Flutter)과 Node/Python 중심이고 IoT 기기 연동·UI/UX 구현 능력을 요구한다. Java/Spring 백엔드와 접점이 거의 없다. 경기 광명 근무.",
       "appealProjects": [],
       "interviewPrep": "현 포트폴리오와 방향이 다르다. 실시간 데이터 처리 경험만 부분적으로 연결 가능."
+    }
+  },
+  {
+    "id": 448,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "공공기관",
+    "company": "서강대학교",
+    "role": "기술직(전산개발 / 정보보호 및 웹개발)",
+    "type": "정규직",
+    "dueRaw": "2026-10-06 11:00",
+    "due": "2026-10-06",
+    "url": "https://jasoseol.com/recruit/106381",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "상세 스택 미공개 · 직무 '전산개발', '정보보호 및 웹개발'은 별개 모집단위",
+      "corePitch": "원문 확인 — 서강대 기술직 신입 공채이며 전산개발과 정보보호 및 웹개발 등 여러 직무를 함께 모집한다. 집계 페이지에는 학력·경력 세부 요건, 기술 스택, 근무지가 없고 상세는 apply.sogang.ac.kr에만 있다. 신입 문턱은 확인됐으나 스택 적합도는 확인하지 못했다.",
+      "appealProjects": [],
+      "interviewPrep": "교직원 기술직이라 공공기관 필기·면접 절차 가능성이 높다. 상세 요강(apply.sogang.ac.kr)을 먼저 확인할 것."
+    }
+  },
+  {
+    "id": 449,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "공공기관",
+    "company": "농업정책보험금융원",
+    "role": "IT 분야 직원 공채",
+    "type": "정규직",
+    "dueRaw": "2026-10-06",
+    "due": "2026-10-06",
+    "url": "https://linkareer.com/activity/352411",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "기술 스택 미공개 (상세 요건은 공고 이미지 첨부에만 있음) · 서울 영등포",
+      "corePitch": "원문 확인 — 접수 2026-09-21~10-06으로 아직 모집 중. 모집직무에 '전산'이 있고 채용형태는 체험형 인턴·신입·경력 혼재이며 서울 영등포구 근무. 신입 문턱과 기술 스택은 이미지 첨부 안에만 있어 텍스트로 확인하지 못했다.",
+      "appealProjects": [],
+      "interviewPrep": "공공·금융권 전산직은 필기(전공·NCS)와 서류 요건이 관건일 가능성이 높다. 첨부 공고문 이미지에서 전산직 자격요건과 전형 절차부터 확인할 것."
+    }
+  },
+  {
+    "id": 450,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "대기업",
+    "company": "코오롱베니트",
+    "role": "시스템 개발(금융) — 채용연계형 인턴",
+    "type": "채용연계형 인턴",
+    "dueRaw": "2026-10-07",
+    "due": "2026-10-07",
+    "url": "https://jasoseol.com/recruit/106432",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "상세 스택 미공개 (8개 부문 통합 공고: 시스템 개발(금융)·SAP·데이터플랫폼·인프라·SAS 등)",
+      "corePitch": "원문 확인 — 채용연계형 인턴 공고이고 접수 2026-09-28 ~ 2026-10-07 14:59로 진행 중이다. 자격요건·우대사항·기술 스택·근무지는 페이지에 없고 상세는 dream.kolon.com에서만 확인된다. 정규직 직행이 아니라 인턴 후 전환 구조다.",
+      "appealProjects": [],
+      "interviewPrep": "금융 SI 도메인 공고라 스택 확인 전에는 준비 방향을 정하기 어렵다. dream.kolon.com에서 시스템 개발(금융) 직무 요건을 먼저 확인할 것."
+    }
+  },
+  {
+    "id": 451,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "중견기업",
+    "company": "코리안리재보험",
+    "role": "전산",
+    "type": "정규직",
+    "dueRaw": "2026-10-12 17:00",
+    "due": "2026-10-12",
+    "url": "https://jasoseol.com/recruit/106417",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "상세 스택 미공개 · 신입 일반/AI/전산 3개 모집단위",
+      "corePitch": "원문 확인 — 코리안리재보험 2026년 신입채용이며 신입 일반·신입 AI·신입 전산으로 나눠 뽑고 지원 기간은 진행 중이다. 자격요건·기술 스택·근무지는 집계 페이지에 없어 확인하지 못했다. 신입 문턱은 없다.",
+      "appealProjects": [],
+      "interviewPrep": "전산 직군 지원 시 금융·보험 도메인 관심과 DB·트랜잭션 안정성 경험을 강조. 상세 요강 확인 필요."
+    }
+  },
+  {
+    "id": 452,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "트리플오스",
+    "role": "백엔드 개발자(신입)",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/356275",
+    "strategy": {
+      "fit": "A",
+      "stackMatch": "Java/Kotlin, Spring Boot, MySQL, Redis, MongoDB, Git/Jira · 경기 성남(분당)",
+      "corePitch": "원문 확인 — 직무 제목이 '백엔드 개발자(신입)'이고 상시채용. 필수 요건이 Java/Kotlin·Spring Boot 개발 경험, RDBMS·NoSQL 활용 경험, 서버 구축·배포·모니터링 경험, CS 전공 수준 지식이라 Spring/MySQL/AWS 배포 경험과 직접 맞는다. 실제 업무는 Kotlin/Spring Boot 기반 REST API 구현·유지보수와 마이크로서비스 개발. 경기 성남시 분당구 정자로(스파크플러스).",
+      "appealProjects": [
+        "SENTINEL: 18개 모듈·95개 API 총괄, Java/Spring 기반 REST API 설계·구현",
+        "MySQL 인덱스 튜닝, JPA/QueryDSL 기반 조회 최적화",
+        "AWS(EC2·S3·CodeDeploy) 배포 파이프라인 운영 경험"
+      ],
+      "interviewPrep": "Kotlin 실무 경험이 없다면 Java 기반 Spring Boot 경험과 Kotlin 학습 의지를 함께 제시. Redis·MongoDB 활용 경험 유무와 배포·모니터링 경험을 구체적 수치로 준비."
+    }
+  },
+  {
+    "id": 453,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "바카티오(Vacatio)",
+    "role": "Software Engineer",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/388623",
+    "strategy": {
+      "fit": "A",
+      "stackMatch": "Kotlin/Java, Spring Boot, JPA, PostgreSQL, Redis, Node.js, MongoDB, React/TypeScript, ECS·Docker · 서울 마포",
+      "corePitch": "원문 확인 — 신입 지원 가능(경력 무관), 상시채용. 자격요건에 Kotlin/Java+Spring Boot 서비스 구축·운영 경험, 관계형 DB 트랜잭션·락 정합성 해결 경험, 배포 경험(사이드 프로젝트 가능)이 있다. AI 도구(예: Claude Code)로 개발 효율을 높인 경험과 설계 결정 문서화·정량 보고 능력도 요구한다. 서울 마포구.",
+      "appealProjects": [
+        "SENTINEL: Kafka 202 Accepted + 상태 폴링으로 외부 AI 지연 시 WAS 스레드 고갈 방어 — 정합성·운영 문제 해결 사례",
+        "MySQL 인덱스 튜닝·JPA/QueryDSL 경험 — RDB 정합성·성능 요건과 연결",
+        "AWS EC2·S3·CodeDeploy 배포 운영 — 배포 경험 요건과 연결"
+      ],
+      "interviewPrep": "트랜잭션·락 정합성 사례를 수치와 함께 말할 수 있게 준비(격리 수준, 락 선택 이유). AI 도구 활용 경험과 설계 결정 문서화 사례도 필요. 공고 스택은 PostgreSQL·Redis라 MySQL 경험을 어떻게 옮길지 답변 준비."
+    }
+  },
+  {
+    "id": 454,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "카카오페이",
+    "role": "서버 개발자 - 데이터 플랫폼 (신입)",
+    "type": "정규직",
+    "dueRaw": "채용시마감",
+    "due": null,
+    "url": "https://linkareer.com/activity/347439",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Kotlin, Spring Boot, MySQL, Redis, Kafka, MongoDB, Docker, Kubernetes · 경기 성남(판교)",
+      "corePitch": "원문 확인 — 서버 개발자(데이터 플랫폼)로, 신입이라 표기됐으나 자격요건에 '1년 이상의 서버 개발 경력'이 함께 있어 실질 문턱은 경력 1년이다. 요구 스택은 Kotlin·Spring, RDBMS 설계와 쿼리 튜닝, Redis, 대용량 데이터 처리, 분산 시스템 이해이며 스택 자체는 Spring, MySQL 튜닝, Kafka로 상당 부분 겹친다. 언어가 Kotlin이라는 점과 경력 요건이 갭이다. 채용 시 마감, 경기 성남.",
+      "appealProjects": [
+        "SENTINEL: Kafka 202 Accepted + 상태 폴링으로 외부 AI 지연 시 WAS 스레드 고갈 방어(Kafka 접점)",
+        "MySQL 인덱스 튜닝 경험(쿼리 튜닝 요건과 접점)"
+      ],
+      "interviewPrep": "Kotlin 미경험을 Java/Spring 숙련과 JVM 공통 기반으로 메우는 논리 필요. 경력 1년 요건은 프로젝트 운영 경험으로 보완 가능한지 어필."
+    }
+  },
+  {
+    "id": 455,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "고위드",
+    "role": "Backend Engineer (1~3년)",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/383359",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Java, Spring Boot 3.0+ (Spring Data JPA), MySQL, Kafka, Redis, Netty, Docker/k8s, Google Cloud · 서울 강남",
+      "corePitch": "원문 확인 — 경력 1~3년 요구(B2B 핀테크). 자격요건은 'Java/Spring 기반 백엔드 개발 경험과 RESTful API, RDBMS 기본기'로 보유 스택과 잘 맞고 MySQL·Kafka·JPA까지 겹친다. 다만 신입 전용이 아니라 연차 문턱이 있고 클라우드가 AWS가 아닌 Google Cloud다. 서울 강남구 도산대로.",
+      "appealProjects": [
+        "SENTINEL: Kafka 202 Accepted + 상태 폴링으로 외부 AI 지연(80초) 시 WAS 스레드 고갈 방어",
+        "JPA/QueryDSL, MySQL 인덱스 튜닝 경험"
+      ],
+      "interviewPrep": "연차 요건을 프로젝트 깊이로 메워야 한다. Kafka 사용 이유와 장애 대응, JPA N+1·인덱스 튜닝 전후 수치를 준비. Netty·k8s는 학습 계획 수준으로 답변."
+    }
+  },
+  {
+    "id": 456,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "버터소프트",
+    "role": "백엔드 개발자 [Java/Spring]",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/386905",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Java/Kotlin, Spring Framework/Boot, JPA, MySQL·PostgreSQL · 서울 성동(성수)",
+      "corePitch": "원문 확인 — 스택(Java/Spring, JPA, MySQL)은 정확히 일치하지만 경력 요건이 1~5년으로 신입 불가다. 자격요건에 데이터 수집·모니터링 경험과 '고객에게 안정적으로 데이터를 제공해 본 경험'이 있고, 우대는 자동화 배포, 성능 최적화, 컨테이너 운영이다. 상시채용, 서울 성동구 성수.",
+      "appealProjects": [
+        "MySQL 인덱스 튜닝 — 성능 최적화 우대사항과 연결",
+        "AWS EC2·S3·CodeDeploy 배포 — 자동화 배포 우대사항과 연결",
+        "JPA/QueryDSL 기반 서비스 개발 — JPA 자격요건과 연결"
+      ],
+      "interviewPrep": "신입 불가 조건이라 지원 자체가 성립하지 않을 수 있다. 지원한다면 프로젝트 기간·운영 경험을 실무 경력에 준하는 것으로 설득해야 한다."
+    }
+  },
+  {
+    "id": 457,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "마인드허브",
+    "role": "백엔드 개발자 (인프라·플랫폼) 1년 이상",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/388281",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Spring Boot, AWS EKS, Helm, GitHub Actions, Prometheus, Grafana, Elasticsearch, MySQL, PostgreSQL · 경기 안양",
+      "corePitch": "원문 확인 — 백엔드(인프라·플랫폼) 직무로 '백엔드 개발 경력 1년 이상'이 명시돼 신입 지원은 불가하다. 요건은 Java/Spring Boot API 개발, RDBMS 설계·SQL, Git, Linux CLI, 인프라·운영 학습 의욕이다. 스택은 EKS·Helm·Prometheus·Grafana 등 쿠버네티스 운영 중심이라 EC2·CodeDeploy 경험과 거리가 있다. 상시채용, 경기 안양.",
+      "appealProjects": [],
+      "interviewPrep": "신입 문턱에서 걸린다. 경력 1년 충족 여부를 먼저 확인하고, 지원한다면 Kubernetes 학습 계획을 준비."
+    }
+  },
+  {
+    "id": 458,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "에버엑스",
+    "role": "[개발팀] Backend Engineer",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/375375",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Java/Kotlin, Spring Framework, AWS, AI Agent·프롬프트 엔지니어링(우대), DB 최적화(우대) · 서울 서초",
+      "corePitch": "원문 확인 — 경력 1년 이상(4년제 이공계 학위 또는 이에 준하는 개발 경험). 업무는 공통 서비스 개발, AWS 인프라 설계·구축, 모니터링·장애 대응, DB 설계. 우대에 클라우드 직접 운영, DB 최적화, AI Agent 활용, 헬스케어 개발이 있어 EC2/S3/CodeDeploy와 인덱스 튜닝 경험이 연결된다. 서울 서초구 강남대로.",
+      "appealProjects": [
+        "AWS(EC2·S3·CodeDeploy) 배포 파이프라인 운영 경험",
+        "MySQL 인덱스 튜닝으로 조회 성능 개선한 경험",
+        "SENTINEL: 18개 모듈·95개 API 총괄"
+      ],
+      "interviewPrep": "'이에 준하는 개발 경험' 문구를 근거로 프로젝트 경험을 연차 대체재로 제시. AWS 인프라 설계 범위와 모니터링·장애 대응 경험을 구체화."
+    }
+  },
+  {
+    "id": 459,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "주식회사 마이스",
+    "role": "[메가스터디교육 자회사] 백엔드 개발자",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://linkareer.com/activity/352314",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "원문 미확인 (스택이 공고 이미지에만 있어 텍스트로 읽지 못함) · 서울 서초",
+      "corePitch": "원문 미확인 — 페이지는 열렸으나 자격요건·우대·기술 스택이 이미지(마이스 채용공고.png)로만 게시돼 읽지 못했다. 페이지 텍스트로 확인된 것은 채용형태 신입, 상시모집(접수 시작 2026-09-21), 서울 서초구, 직무 백엔드 개발자뿐이다.",
+      "appealProjects": [],
+      "interviewPrep": "공고 이미지를 직접 열어 스택 확인 후 준비. 확인 전에는 준비 방향을 정하지 않는다."
+    }
+  },
+  {
+    "id": 460,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "알트나인",
+    "role": "[SOL: enchant] 서버 프로그래밍 (신입)",
+    "type": "정규직",
+    "dueRaw": "2026-10-31",
+    "due": "2026-10-31",
+    "url": "https://linkareer.com/activity/352170",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "게임 서버 · 언어 무관(1개 이상 능숙) · 우대: Rust, Database, 클라우드 · 경기 성남",
+      "corePitch": "원문 확인 — 서버 프로그래밍 신입 공고로 마감 2026-10-31이 맞다. 필수 요건은 프로그래밍 언어 1개 이상 능숙, 자료구조·알고리즘·네트워크·OS 등 CS 지식, 문제 해결 능력이고 특정 언어 강제는 없다. Rust, Database, 클라우드 경험은 우대다. 신입 문턱은 낮지만 게임 도메인이고 Rust 우대다. 경기 성남.",
+      "appealProjects": [],
+      "interviewPrep": "CS 기초(네트워크·OS·자료구조) 질문 대비. 게임 서버 관심 동기와 DB·AWS 경험을 우대사항과 연결."
+    }
+  },
+  {
+    "id": 461,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "스타트업",
+    "company": "페이타랩(패스오더)",
+    "role": "Backend Developer",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/325718",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Kotlin/Python/Java, Spring·WebFlux·FastAPI·Flask, PostgreSQL·MongoDB·Redis·Elasticsearch, Kafka·Celery, AWS·K8s·Docker·Jenkins · 서울 강남",
+      "corePitch": "원문 확인 — 신입~경력 10년으로 신입 지원 가능하고 상시채용. 언어는 Kotlin/Python/Java 혼재이며 Spring 외에 FastAPI·Flask, DDD 기반 설계, MSA, 성능 최적화, AI-First 개발 문화를 요구한다. 우대에 쿼리 최적화·성능 개선 경험이 있어 인덱스 튜닝과 접점이 있으나 DB가 PostgreSQL 중심이고 Python 비중이 크다. 서울 강남구 영동대로.",
+      "appealProjects": [
+        "MySQL 인덱스 튜닝 등 쿼리 최적화·성능 개선 경험",
+        "SENTINEL: Kafka 기반 비동기 처리로 외부 AI 지연 방어"
+      ],
+      "interviewPrep": "DDD·MSA 경험 유무와 Python 학습 의지를 준비. AI 도구 활용 방식(설계부터 개발까지)을 구체 사례로 설명."
+    }
+  },
+  {
+    "id": 462,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "중견기업",
+    "company": "이카운트",
+    "role": "개발자 신입채용",
+    "type": "정규직",
+    "dueRaw": "2026-10-14",
+    "due": "2026-10-14",
+    "url": "https://jasoseol.com/recruit/106427",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "원문 미확인 (스택이 외부 Notion 상세 페이지에만 있음) · 근무지 미확인",
+      "corePitch": "원문 미확인 — 자소서닷컴 페이지는 신입 43명 모집과 접수 마감 2026-10-14 14:59만 알려 주고, 자격요건·기술 스택·근무지는 없다. 상세는 외부 Notion 페이지에 있는데 열어도 본문이 나오지 않았다.",
+      "appealProjects": [],
+      "interviewPrep": "Notion 상세 공고를 브라우저로 직접 열어 스택 확인 필요. 시트의 'ERP SaaS 자체 솔루션'과 서울은 이번에 확인하지 못함."
+    }
+  },
+  {
+    "id": 463,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "중견기업",
+    "company": "메타넷글로벌",
+    "role": "Fullstack Developer / ITO 운영",
+    "type": "정규직",
+    "dueRaw": "2026-10-21",
+    "due": "2026-10-21",
+    "url": "https://jumpit.saramin.co.kr/position/55102356",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Java, JSP, Vue.js, Spring Boot, REST API, PL/SQL, Confluence/Jira · 서울 강남",
+      "corePitch": "원문 확인 — SI 프로젝트 풀스택 또는 ITO(SM) 운영이며 경력 요건이 1~10년이라 신입은 해당하지 않는다. 요건은 Java·JSP·Vue.js 풀스택, DB 설계와 PL/SQL, Cloud Native·MSA, REST API, Jira·Confluence, CI/CD이고 우대는 Confluence/Jira API 연동, 백오피스 도메인, Agentic AI다. Java/Spring 자체는 맞지만 JSP·Vue와 경력이 갭이다. 마감 2026-10-21, 근무지 서울 강남 테헤란로.",
+      "appealProjects": [],
+      "interviewPrep": "경력 1년 이상 요건 충족 여부가 선결. SI/ITO 운영 성격에 대한 지원 동기 정리."
+    }
+  },
+  {
+    "id": 464,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "중견기업",
+    "company": "세포아소프트",
+    "role": "JAVA 기반 웹 풀스택 개발자",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://www.wanted.co.kr/wd/181466",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Java, JavaScript, SQL, CSS, HTML5, XML, SVN, RDBMS · 서울 구로",
+      "corePitch": "원문 확인 — 신입~경력 10년으로 신입 지원 가능하고 상시채용. 자체 솔루션(지출관리 플랫폼) 애플리케이션 개발·유지보수이며 프론트엔드·백엔드·DB 설계를 모두 다루는 풀스택. 스택이 Java/JS/SQL/SVN 등 표준 기술 수준이라 Spring·JPA·Kafka 같은 보유 역량과의 접점은 제한적이다. 서울 구로구 디지털로.",
+      "appealProjects": [],
+      "interviewPrep": "프론트 비중과 자체 프레임워크 학습 부담을 확인할 것. 기존 코드 읽고 분석·응용하는 능력이 강조되므로 코드 리딩 경험을 준비."
+    }
+  },
+  {
+    "id": 465,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "중견기업",
+    "company": "메가존클라우드",
+    "role": "SW 개발자 (ServiceNow 솔루션)",
+    "type": "정규직",
+    "dueRaw": "채용시마감",
+    "due": null,
+    "url": "https://linkareer.com/activity/336341",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "Java/JavaScript/Python 중 1개 이상, RDBMS 설계, ServiceNow(GlideScript, REST/SOAP API, Integration Hub, AngularJS, Bootstrap) · 경기 과천",
+      "corePitch": "원문 확인 — 신입·경력 모두 지원 가능하고 채용 시 마감이며 진행 중(시작 2026-07-20)이다. 요건은 Java·JavaScript·Python 중 1개 언어로 웹 개발과 RDBMS 설계, 기술 문서 영어 독해다. 다만 실제 업무는 ServiceNow 플랫폼(GlideScript, AngularJS) 기반 솔루션 개발이라 Spring 백엔드 역량은 일부만 전이된다. 근무지는 경기 과천.",
+      "appealProjects": [],
+      "interviewPrep": "ServiceNow는 플랫폼 종속 스택이라 학습 의지를 설명해야 한다. Java 웹 개발과 RDBMS 설계 경험은 자격요건으로 연결 가능. ServiceNow 교육 과정 이수는 우대."
+    }
+  },
+  {
+    "id": 466,
+    "issue": "2026-09-4주차",
+    "cat": "개발∙데이터",
+    "org": "중견기업",
+    "company": "NIT서비스",
+    "role": "네이버페이 주문형 서비스 기술지원",
+    "type": "정규직",
+    "dueRaw": "상시채용",
+    "due": null,
+    "url": "https://linkareer.com/activity/349937",
+    "strategy": {
+      "fit": "B",
+      "stackMatch": "스택 미공개(상세는 이미지) · 네이버페이 주문형 가맹점 서비스 연동·API 기술지원 · 경기 성남",
+      "corePitch": "원문 확인 — 신입, 상시모집이나 공고문에 '본 직무는 개발직군이 아니며 네이버페이 주문형 가맹점의 서비스 연동 및 API 기술지원 업무'라고 명시돼 있다. 자격요건과 스택은 이미지로만 있어 텍스트로 확인하지 못했다. 개발 직무가 아니라 Spring·JPA·Kafka 백엔드 경험이 직접 쓰이지 않는다. 경기 성남.",
+      "appealProjects": [],
+      "interviewPrep": "개발이 아닌 기술지원 직무임을 인지하고 지원 동기를 정리. API 연동 지원 경험 정도가 접점."
     }
   }
 ]
